@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+html {
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: radial-gradient(circle, #002d5a, #03152c);
+}
+
+#mainChart {
+  @include absolute(top 0 right 0 bottom 0 left 0);
+}
+
+.dash-group {
+  @include absolute(top 5% right 5% bottom 5% left 66%);
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  > .dashboard {
+    width: 100%;
+    height: 24%;
+  }
+
+  h1 {
+    color:#01c7ff;
+    font-size: 1em;
+    text-align: center;
+    background: linear-gradient(to right, transparent, #02506e 50%, transparent);
+    line-height: 2.6;
+  }
+
+  article {
+    border-top: 3px solid transparent;
+    height: calc(100% - 2.6em);
+  }
+}
