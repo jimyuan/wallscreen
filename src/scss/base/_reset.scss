@@ -16,7 +16,7 @@ body {
   background: radial-gradient(circle, #002d5a, #03152c);
 }
 
-#mainChart {
+#mapChart {
   @include absolute(top 0 right 0 bottom 0 left 0);
 }
 
@@ -40,7 +40,7 @@ body {
   }
 
   article {
-    border-top: 3px solid transparent;
+    margin-top: 3px;
     height: calc(100% - 2.6em);
   }
 }

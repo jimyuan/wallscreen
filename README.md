@@ -1,14 +1,6 @@
-# vue2-proj
+# 大屏多维度数据展示
 
-> 这是一个网站组件化开发的模板，通过以下技术及框架来实现样式和逻辑的组件化开发、代码测试以及生产环境的部署：
-> - Webpack2
-> - ES6
-> - Sass
-> - Vue2
-> - Vue-resource
-> - Vuex
->
-> 安装及运行步骤见下方示例，详细使用见 Gitlab wiki（only internal）。
+采用百度 [eCharts](http://echarts.baidu.com/) 作为主要图表制作、展示工具。
 
 ## Tips
 建议安装使用 _cnpm_ 命令替代 nodejs 默认的包管理工具。
