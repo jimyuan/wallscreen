@@ -55,7 +55,7 @@ export default {
         position: 'inside',
         formatter (obj) { return `${obj.percent.toFixed()}%` },
         textStyle: {
-          fontSize: 8
+          fontSize: 12
         }
       }
     },
@@ -111,7 +111,7 @@ export default {
         position: 'inside',
         formatter (obj) { return `${obj.percent.toFixed()}%` },
         textStyle: {
-          fontSize: 8
+          fontSize: 12
         }
       }
     },

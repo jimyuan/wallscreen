@@ -16,14 +16,14 @@ export const opts = {
   }
 }
 
-export const series = [{
+export const cityPoint = {
   name: '城市',
   hoverAnimation: false,
   legendHoverLink: false,
   type: 'scatter',
   coordinateSystem: 'geo',
   effectType: 'ripple',
-  symbolSize: 14,
+  symbolSize: 10,
   label: {
     normal: {
       show: true,
@@ -42,4 +42,4 @@ export const series = [{
       borderWidth: 1
     }
   }
-}]
+}
