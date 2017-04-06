@@ -41,12 +41,12 @@ export default {
   series: [{
     name: '运输量',
     type: 'bar',
-    barWidth: '30%',
+    barWidth: '40%',
     itemStyle: {
       normal: {
         color: '#00b6ca'
       }
     },
-    data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7]
+    data: [5.0, 14.9, 7.0, 23.2, 25.6, 56.7]
   }]
 }

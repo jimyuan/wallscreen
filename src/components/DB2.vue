@@ -7,13 +7,13 @@
 
 <script>
 import echarts from 'echarts'
-import dash1Opts from 'CHARTS/dashOneData'
+import dashOpts from 'CHARTS/dashTwoData'
 
 export default {
   mounted () {
-    // dashboard-1
-    const dash1 = echarts.init(document.getElementById('dash1'))
-    dash1.setOption(dash1Opts)
+    // dashboard-2
+    const dash = echarts.init(document.getElementById('dash2'))
+    dash.setOption(dashOpts)
   }
 }
 </script>
