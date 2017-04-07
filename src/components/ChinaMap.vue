@@ -11,7 +11,7 @@ import motion from 'CHARTS/motionData'
 export default {
   data () {
     return {
-      limit: 10,
+      limit: 30,
       seed: Math.random(),
       base: {
         name: '上海',

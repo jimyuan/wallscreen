@@ -20,10 +20,13 @@ export const cityPoint = {
   name: '城市',
   hoverAnimation: false,
   legendHoverLink: false,
-  type: 'scatter',
+  type: 'effectScatter',
   coordinateSystem: 'geo',
   effectType: 'ripple',
-  symbolSize: 10,
+  symbolSize: 6,
+  rippleEffect: {
+    brushType: 'stroke'
+  },
   label: {
     normal: {
       show: true,
