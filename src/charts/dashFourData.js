@@ -1,5 +1,5 @@
 export default {
-  backgroundColor: '#012a47',
+  backgroundColor: 'rgba(1,42,71,0.8)',
   legend: {
     orient: 'vertical',
     x2: '5%',

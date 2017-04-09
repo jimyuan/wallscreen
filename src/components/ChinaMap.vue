@@ -11,7 +11,7 @@ import motion from 'CHARTS/motionData'
 export default {
   data () {
     return {
-      limit: 30,
+      limit: 5,
       seed: Math.random(),
       base: {
         name: '上海',
@@ -64,7 +64,6 @@ export default {
     chinaMap.setOption({
       ...map.opts, series
     })
-    console.log(series.map((item, i) => Object.assign(item, geoEffect[i])))
     chinaMap.setOption({
       series: [{}, {}, Object.assign(series[2], geoEffect[2])]
     })
@@ -85,6 +84,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css">
-</style>

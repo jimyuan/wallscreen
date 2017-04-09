@@ -1,5 +1,5 @@
 export default {
-  backgroundColor: '#012a48',
+  backgroundColor: 'rgba(1,42,71,0.8)',
   title: {
     text: '本月累计运输量：23,556吨  累计运输总量： 788,331吨',
     textAlign: 'left',
