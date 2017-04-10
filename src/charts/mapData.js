@@ -30,7 +30,7 @@ export const cityPoint = {
   label: {
     normal: {
       show: true,
-      position: [20, -3],
+      position: [-30, -10],
       formatter: '{b}',
       textStyle: {
         color: '#fff'

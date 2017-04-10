@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 const ls = new WsCache()
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [{
     path: '/',
     redirect: '/home'

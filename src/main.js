@@ -13,4 +13,4 @@ new Vue({
   router,
   store,
   components: { App }
-})
+}).$mount()

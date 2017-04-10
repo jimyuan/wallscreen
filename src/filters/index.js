@@ -2,6 +2,6 @@
  * 此处须把所有过滤器全局化
  */
 import Vue from 'vue'
+import dataFormat from './dataFormat'
 
-Vue.filter('dateTimeFormatter', require('./dateTimeFormatter').default)
-Vue.filter('dataFormat', require('./dataFormat').default)
+Vue.filter('dataFormat', dataFormat)

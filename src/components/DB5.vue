@@ -8,11 +8,11 @@
              <th v-for="h of tHead" v-text="h"></th>
            </tr>
          </thead>
-         <tbody>
+         <transition-group tag="tbody" name="list-row" mode="out-in">
            <tr v-for="deal of deals" :key="deal" class="list-item">
              <td v-for="item of deal" v-text="item"></td>
            </tr>
-         </tbody>
+         </transition-group>
       </table>
     </article>
   </div>
@@ -45,13 +45,13 @@ export default {
   },
 
   mounted () {
-    let int = 2000
+    for (let i = 0; i < 5; i++) {
+      this.deals.push(this.dataFactory())
+    }
     setInterval(() => {
-      int = 2000 * Math.random() | 0
-      let len = this.deals.length
+      this.deals.pop()
       this.deals.unshift(this.dataFactory())
-      len > 4 && this.deals.pop()
-    }, int)
+    }, 5000)
   }
 
 }

@@ -29,7 +29,7 @@ export default {
     trailData () {
       let cities = this.cityData
       let cityStart = this.base
-      let cityPicked = cities[Math.random() * cities.length | 0]
+      let cityPicked = cities[this.seed * cities.length | 0]
       return {
         fromName: cityStart.name,
         toName: cityPicked.name,
@@ -56,23 +56,27 @@ export default {
     // map
     const chinaMap = echarts.init(document.getElementById('mapChart'))
     let series = motion.concat(map.cityPoint)
-    const geoEffect = [
-      { data: [this.trailData] },
-      { data: [this.trailData] },
-      { data: this.cityData }
-    ]
+    series[0].data = [this.trailData]
+    series[1].data = [this.trailData]
+    series[2].data = this.cityData
+    // const geoEffect = [
+    //   { data: [this.trailData] },
+    //   { data: [this.trailData] },
+    //   { data: this.cityData }
+    // ]
     chinaMap.setOption({
       ...map.opts, series
     })
-    chinaMap.setOption({
-      series: [{}, {}, Object.assign(series[2], geoEffect[2])]
-    })
+    // chinaMap.setOption({
+    //   series: [{}, {}, Object.assign(series[2], {data: this.cityData})]
+    // })
     window.setInterval(() => {
       this.seed = Math.random()
-      chinaMap.setOption({
-        series: series.map((v, i) => Object.assign(v, geoEffect[i]))
-      })
-    }, 2000)
+      series[0].data = [this.trailData]
+      series[1].data = [this.trailData]
+      series[2].data = this.cityData
+      chinaMap.setOption({ series })
+    }, 10000)
   },
 
   methods: {

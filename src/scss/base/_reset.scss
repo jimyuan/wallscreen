@@ -106,6 +106,7 @@ body {
 
 .deal-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
 
   th {
@@ -119,5 +120,30 @@ body {
   td {
     color: #fff;
     padding: 0.5em;
+    font-size: 0.8em;
   }
+}
+
+.list-item {
+  transition: all .5s;
+}
+
+.list-row-enter-active {
+  background: #fff;
+
+  td {
+    color: rgba(1,42,71,0.8);
+  }
+}
+
+.list-row-enter {
+  background: rgba(1,42,71,0.8);
+
+  td {
+    color: #fff;
+  }
+}
+
+.list-row-leave-active {
+  display: none;
 }
