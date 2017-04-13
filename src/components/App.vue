@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <transition :name="transitionName">
-      <router-view class="child-view"></router-view>
-    </transition>
-  </div>
+  <transition :name="transitionName">
+    <router-view class="child-view"></router-view>
+  </transition>
 </template>
 
 <script>

@@ -3,6 +3,7 @@
 html {
   -webkit-overflow-scrolling: touch;
   height: 100%;
+  font-size: map-get($viewprot-size, 'small');
   box-sizing: border-box;
 }
 
@@ -13,10 +14,13 @@ html {
 }
 
 body {
-  background: radial-gradient(circle, #002d5a, #03152c);
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #000;
 }
 
-#mapChart {
+/* #mapChart {
   @include absolute(top 0 right 0 bottom 0 left 0);
 }
 
@@ -147,3 +151,4 @@ body {
 .list-row-leave-active {
   display: none;
 }
+ */

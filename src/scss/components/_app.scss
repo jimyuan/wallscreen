@@ -1,26 +1,17 @@
 @charset 'utf-8';
 
 .child-view {
-  @include absolute(top 0 left 0 right 0 bottom 0);
-  transition: transform .5s cubic-bezier(0.2, 0.6, 0.6, 1.5);
-}
-
-.slide-left-enter,
-.slide-right-leave-active {
-  opacity: 0;
-  transform: translate(100%, 0);
-}
-
-.slide-left-leave-active,
-.slide-right-enter {
-  opacity: 0;
-  transform: translate(-100%, 0);
+  @include size(32rem * 1.6, 32rem);
+  @include relative(top 50%);
+  margin: auto;
+  transform: translateY(-50%);
+  background: radial-gradient(#032759, #020c27 90%);
+  transition: opacity .5s ease;
 }
 
 .fade-enter-active,
 .fade-leave {
   opacity: 1;
-  transition: opacity .5s ease;
 }
 .fade-enter,
 .fade-leave-active {
