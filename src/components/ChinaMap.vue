@@ -20,6 +20,11 @@ export default {
           normal: {
             color: 'orange'
           }
+        },
+        label: {
+          normal: {
+            position: [10, -5]
+          }
         }
       }
     }
@@ -30,11 +35,11 @@ export default {
       let cities = this.cityData
       let cityStart = this.base
       let cityPicked = cities[this.seed * cities.length | 0]
-      return {
+      return [{
         fromName: cityStart.name,
         toName: cityPicked.name,
         coords: [cityStart.value, cityPicked.value]
-      }
+      }]
     },
 
     cityData () {
@@ -56,24 +61,16 @@ export default {
     // map
     const chinaMap = echarts.init(document.getElementById('mapChart'))
     let series = motion.concat(map.cityPoint)
-    series[0].data = [this.trailData]
-    series[1].data = [this.trailData]
+    series[0].data = this.trailData
+    series[1].data = this.trailData
     series[2].data = this.cityData
-    // const geoEffect = [
-    //   { data: [this.trailData] },
-    //   { data: [this.trailData] },
-    //   { data: this.cityData }
-    // ]
     chinaMap.setOption({
       ...map.opts, series
     })
-    // chinaMap.setOption({
-    //   series: [{}, {}, Object.assign(series[2], {data: this.cityData})]
-    // })
     window.setInterval(() => {
       this.seed = Math.random()
-      series[0].data = [this.trailData]
-      series[1].data = [this.trailData]
+      series[0].data = this.trailData
+      series[1].data = this.trailData
       series[2].data = this.cityData
       chinaMap.setOption({ series })
     }, 10000)
