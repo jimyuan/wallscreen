@@ -15,6 +15,15 @@ const router = new VueRouter({
   }, {
     path: '/home',
     component: resolve => require(['PAGES/Home'], resolve)
+  }, {
+    path: '/9156',
+    component: resolve => require(['PAGES/9156'], resolve)
+  }, {
+    path: '/91steel',
+    component: resolve => require(['PAGES/91steel'], resolve)
+  }, {
+    path: '/ebaoli',
+    component: resolve => require(['PAGES/Ebaoli'], resolve)
   }]
 })
 

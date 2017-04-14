@@ -44,3 +44,28 @@
   }
   @return map-deep-get($z-layers, $layers...);
 }
+
+/**
+ * 去除数值的单位
+ *
+ * @param: $number - 传入带单位的值
+ * @return: 返回无单位数值
+ *
+ * eg: strip-unit(100px) => 100
+ */
+@function strip-unit($number){
+  @return $number / ($number * 0 + 1);
+}
+
+/**
+ * 按layout 缩放小视窗的显示值
+ *
+ * @param $size - 传入 layout 中的实际值
+ * @return 相对值
+ */
+@function resp-size($size) {
+  $unit: unquote(unit($size));
+  $size: strip-unit($size);
+
+  @return $size * $viewport / map-get($viewport-size, 'lg');
+}

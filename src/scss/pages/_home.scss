@@ -2,6 +2,54 @@
 
 .home {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-around;
+
+  > a {
+    @include relative(top resp-size(80px));
+
+    display: block;
+    text-align: center;
+  }
+
+  > .launch-bar {
+    @include relative(bottom resp-size(80px));
+
+    width: 100%;
+    text-align: center;
+  }
+
+  .button {
+    $btn-size: resp-size(90px);
+    @include size($btn-size, $btn-size * 0.8);
+
+    display: inline-block;
+    box-shadow: 0 0 30px #020c27;
+    background: #022b53;
+    border-radius: 0.5em;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      @include absolute(top 50% left 50%);
+
+      content: '';
+      display: block;
+      transform: translate(-50%, -50%);
+    }
+
+    &.play::after {
+      @include size(0);
+      border-width: resp-size(20px);
+      border-color: transparent #fff transparent;
+      border-style: solid;
+      border-right-width: 0;
+    }
+
+    &.pause::after {
+      @include size(resp-size(10px), resp-size(30px));
+      box-shadow: -1 * resp-size(10px) 0 #fff, resp-size(10px) 0 #fff;
+    }
+  }
 }

@@ -1,0 +1,56 @@
+@charset 'utf-8';
+
+.site-9156 {
+  .logo-zone {
+    @include absolute(top resp-size(50px) left resp-size(80px));
+  }
+
+  .dash-group {
+    @include absolute(top resp-size(50px) bottom resp-size(50px) right resp-size(32px));
+    width: resp-size(646px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .dash {
+    @include size(100%, 23%);
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      background: linear-gradient(to right, transparent 5%, $dash-title-bg 50%, transparent);
+      font-size: resp-size(22px);
+      line-height: 2.3;
+      color: $dash-title-color;
+      text-align: center;
+    }
+  }
+
+  .board {
+    margin-top: resp-size(5px);
+    background: $dash-board-bg;
+    height: 100%;
+  }
+
+  .dash-bargain {
+    @include absolute(left resp-size(127px) bottom resp-size(46px));
+
+    width: resp-size(646px);
+  }
+
+  .time-stamp {
+    @include absolute(bottom resp-size(46px) left 50%);
+
+    transition: translateX(-50%);
+
+    &::before {
+      @include absolute(top 0 bottom 0 left resp-size(35px) * -1);
+
+      content: '';
+      width: 50%;
+      display: block;
+      background: url('../assets/icon-tips.png') no-repeat 0 0 / contain;
+    }
+  }
+}

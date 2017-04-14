@@ -3,7 +3,8 @@
 html {
   -webkit-overflow-scrolling: touch;
   height: 100%;
-  font-size: map-get($viewprot-size, 'small');
+  font-size: $viewport;
+  line-height: 1.2;
   box-sizing: border-box;
 }
 
@@ -18,6 +19,14 @@ body {
   padding: 0;
   margin: 0;
   background: #000;
+}
+
+img {
+  display: block;
+}
+
+.logo {
+  height: resp-size(85px);
 }
 
 /* #mapChart {

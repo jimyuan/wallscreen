@@ -9,8 +9,15 @@ $z-layers:(
   'default': 1
 );
 
-$viewprot-size: (
-  'small': 20px,
-  'medium': 30px,
-  'large': 40px
-)
+$viewport-size: (
+  'sm': 20,
+  'md': 30,
+  'lg': 40
+);
+
+
+$dash-board-bg: #024;
+$dash-title-bg: #024967;
+$dash-title-color: #00c7ff;
+
+$viewport: map-get($viewport-size, 'md') * 1px;
