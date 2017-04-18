@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+
+/* 时间戳样式 */
+.time-stamp::before {
+  @include absolute(top 0 bottom 0 left resp-size(35px) * -1);
+
+  content: '';
+  width: 50%;
+  display: block;
+  background: url('../assets/icon-tips.png') no-repeat 0 0 / contain;
+}

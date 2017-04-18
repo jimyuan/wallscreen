@@ -1,5 +1,5 @@
 <template>
-  <section class="site-9156"></section>
+  <div class="map-zone" id="chinaMap"></div>
 </template>
 
 <script>

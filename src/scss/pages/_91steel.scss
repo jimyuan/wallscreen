@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+.site-91steel {
+  .dash-group-left,
+  .dash-group-right {
+    @include absolute(top resp-size(50px) bottom resp-size(45px));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: resp-size(500px);
+  }
+
+  .dash-group-left {
+    left: resp-size(30px);
+
+    .dash {
+      @include size(100%, 49%);
+    }
+  }
+
+  .dash-group-right {
+    right: resp-size(30px);
+
+    .dash {
+      @include size(100%, 23%);
+    }
+  }
+
+  .main-zone {
+    @include absolute(top resp-size(50px) bottom resp-size(45px) left resp-size(530px) right resp-size(530px));
+
+    > header {
+      height: resp-size(168px);
+    }
+
+    img {
+      margin: auto;
+    }
+
+    > .count-article {
+      margin: 0 resp-size(55px);
+      display: flex;
+    }
+
+    article {
+      width: 50%;
+    }
+  }
+
+  .map-zone {
+    @include absolute(left 0 right 0 bottom 0 top resp-size(355px));
+  }
+
+  .stamp-pos {
+    @include absolute(right resp-size(50px) bottom 0);
+    z-index: z('9156time');
+  }
+}

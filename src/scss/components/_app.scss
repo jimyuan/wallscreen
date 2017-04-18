@@ -1,5 +1,9 @@
 @charset 'utf-8';
 
+#app {
+  @include size(100%);
+}
+
 .child-view {
   @include size(32rem * 1.6, 32rem);
   @include relative(top 50%);

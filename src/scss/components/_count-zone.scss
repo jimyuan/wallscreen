@@ -1,0 +1,49 @@
+@charset 'utf-8';
+
+/* 页头统计信息 */
+.count-title {
+  display: inline-block;
+  line-height: resp-size(40px);
+  background: #00a6ff;
+  color: #020c27;
+  padding: 0 resp-size(45px) 0 resp-size(15px);
+  font-weight: bold;
+  border-radius: 0.5em;
+}
+
+.count-line {
+  margin: 1em 0;
+
+  span + span {
+    margin-left: 0.1em;
+  }
+}
+
+.num-item:not(:empty) {
+  display: inline-block;
+  width: resp-size(45px);
+  font-family: Impact, monospace;
+  font-size: resp-size(48px);
+  text-align: center;
+  background: #00b6ca;
+  color: #fff;
+  padding: 0 0.15em;
+  border-radius: 0.1em;
+}
+
+.num-item:empty::before,
+.unit {
+  content: ',';
+  margin-left: 0.2em;
+  font-size: 2em;
+  color: #01657d;
+}
+
+.unit {
+  color: #00b8cb;
+}
+
+.total-tips {
+  color: #00bff5;
+  font-size: resp-size(20px);
+}

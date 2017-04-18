@@ -3,9 +3,12 @@
 $bottom-gap: 50px !default;
 
 $z-layers:(
-  'userbar': 20,
-  'navbar': 20,
-  'footer': 20,
+  '9156map': 10,
+  '9156logo': 20,
+  '9156count': 20,
+  '9156dash': 30,
+  '9156group': 30,
+  '9156time': 40,
   'default': 1
 );
 
