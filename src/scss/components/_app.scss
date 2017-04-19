@@ -6,11 +6,10 @@
 
 .child-view {
   @include size(32rem * 1.6, 32rem);
-  @include relative(top 50%);
-
+  @include absolute(top 50% left 50%);
   margin: auto;
   font-size: resp-size(20px);
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   background: radial-gradient(#032759, #020c27 90%);
   color: #dddfe2;
   transition: opacity .5s ease;

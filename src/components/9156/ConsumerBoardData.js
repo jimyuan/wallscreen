@@ -1,9 +1,9 @@
 export default {
-  backgroundColor: 'rgba(1,42,71,0.8)',
-  legend: {
-    orient: 'horizontal',
-    x: '5%',
-    y: '5%',
+  legend: [{
+    orient: 'vertical',
+    x: '10%',
+    y: '3%',
+    itemGap: 7,
     textStyle: {
       color: '#fff'
     },
@@ -11,8 +11,21 @@ export default {
       show: false
     },
     selectedMode: false,
-    data: ['PC端', '移动端', '新用户', '老用户']
-  },
+    data: ['PC端', '移动端']
+  }, {
+    orient: 'vertical',
+    x: '40%',
+    y: '3%',
+    itemGap: 7,
+    textStyle: {
+      color: '#fff'
+    },
+    tooltip: {
+      show: false
+    },
+    selectedMode: false,
+    data: ['新用户', '老用户']
+  }],
   tooltip: {
     trigger: 'none'
   },
@@ -21,8 +34,8 @@ export default {
     type: 'pie',
     z: 3,
     hoverAnimation: false,
-    radius: ['50%', '70%'],
-    center: ['20%', '60%'],
+    radius: ['40%', '60%'],
+    center: ['20%', '65%'],
     label: {
       normal: false
     },
@@ -47,15 +60,15 @@ export default {
     hoverAnimation: false,
     name: '客户端',
     type: 'pie',
-    radius: [0, '51%'],
-    center: ['20%', '60%'],
+    radius: [0, '41%'],
+    center: ['20%', '65%'],
     label: {
       normal: {
         show: true,
         position: 'inside',
         formatter (obj) { return `${obj.percent.toFixed()}%` },
         textStyle: {
-          fontSize: 12
+          fontSize: 10
         }
       }
     },
@@ -77,8 +90,8 @@ export default {
     hoverAnimation: false,
     type: 'pie',
     z: 3,
-    radius: ['50%', '70%'],
-    center: ['50%', '60%'],
+    radius: ['40%', '60%'],
+    center: ['50%', '65%'],
     label: {
       normal: false
     },
@@ -103,15 +116,15 @@ export default {
     name: '访问来源',
     hoverAnimation: false,
     type: 'pie',
-    radius: [0, '51%'],
-    center: ['50%', '60%'],
+    radius: [0, '41%'],
+    center: ['50%', '65%'],
     label: {
       normal: {
         show: true,
         position: 'inside',
         formatter (obj) { return `${obj.percent.toFixed()}%` },
         textStyle: {
-          fontSize: 12
+          fontSize: 10
         }
       }
     },

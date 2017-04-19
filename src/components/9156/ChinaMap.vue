@@ -3,6 +3,18 @@
 </template>
 
 <script>
+import echarts from 'echarts'
+import options from './ChinaMapData'
 export default {
+  data () {
+    return {
+
+    }
+  },
+
+  mounted () {
+    const chinaMap = echarts.init(document.getElementById('chinaMap'))
+    chinaMap.setOption(options)
+  }
 }
 </script>

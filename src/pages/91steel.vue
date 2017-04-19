@@ -1,43 +1,25 @@
 <template>
   <section class="site-91steel">
     <div class="dash-group-left">
-      <div class="dash">
-        <h1>Lorem ipsum dolor sit.</h1>
-        <div class="board"></div>
-      </div>
-      <div class="dash">
-        <h1>Lorem ipsum dolor sit.</h1>
-        <div class="board"></div>
-      </div>
+      <user-company-board></user-company-board>
+      <hang-out-board></hang-out-board>
     </div>
     <div class="main-zone">
       <header>
-        <img src="../assets/logo-91steel.png" alt="91steel" class="logo logo-zone">
+        <img src="../assets/logo-91steel.png" class="logo logo-zone">
       </header>
       <div class="count-article">
         <count-zone :count-opt="tradeOpt"></count-zone>
         <count-zone :count-opt="amountOpt"></count-zone>
       </div>
-      <div class="map-zone"></div>
+      <china-map></china-map>
       <time-stamp :value="timeStamp" class="stamp-pos"></time-stamp>
     </div>
     <div class="dash-group-right">
-      <div class="dash">
-        <h1>Lorem ipsum dolor sit.</h1>
-        <div class="board"></div>
-      </div>
-      <div class="dash">
-        <h1>Lorem ipsum dolor sit.</h1>
-        <div class="board"></div>
-      </div>
-      <div class="dash">
-        <h1>Lorem ipsum dolor sit.</h1>
-        <div class="board"></div>
-      </div>
-      <div class="dash">
-        <h1>Lorem ipsum dolor sit.</h1>
-        <div class="board"></div>
-      </div>
+      <increase-board></increase-board>
+      <trade-count-board></trade-count-board>
+      <regional-deal-board></regional-deal-board>
+      <hot-trade-board></hot-trade-board>
     </div>
   </section>
 </template>
@@ -46,6 +28,13 @@
 import moment from 'moment'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
+import UserCompanyBoard from 'COMPONENTS/91steel/UserCompanyBoard'
+import HangOutBoard from 'COMPONENTS/91steel/HangOutBoard'
+import IncreaseBoard from 'COMPONENTS/91steel/IncreaseBoard'
+import TradeCountBoard from 'COMPONENTS/91steel/TradeCountBoard'
+import RegionalDealBoard from 'COMPONENTS/91steel/RegionalDealBoard'
+import HotTradeBoard from 'COMPONENTS/91steel/HotTradeBoard'
+import ChinaMap from 'COMPONENTS/91steel/ChinaMap'
 export default {
   data () {
     return {
@@ -67,6 +56,6 @@ export default {
       }
     }
   },
-  components: {TimeStamp, CountZone}
+  components: { TimeStamp, CountZone, UserCompanyBoard, HangOutBoard, IncreaseBoard, TradeCountBoard, RegionalDealBoard, HotTradeBoard, ChinaMap }
 }
 </script>

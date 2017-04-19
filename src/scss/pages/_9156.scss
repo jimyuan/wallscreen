@@ -8,12 +8,12 @@
 
   .map-zone {
     @include absolute(top 0 bottom 0 left 0 right resp-size(680px));
-    z-index: map-get($z-layers, '9156map');
+    z-index: z('9156map');
   }
 
   .count-zone {
     @include absolute(top resp-size(190px) left resp-size(130px));
-    z-index: map-get($z-layers, '9156count');
+    z-index: z('9156count');
   }
 
   .dash-group {
@@ -32,7 +32,7 @@
     @include absolute(left resp-size(127px) bottom resp-size(46px));
 
     width: resp-size(646px);
-    z-index: map-get($z-layers, '9156dash');
+    z-index: z('9156dash');
   }
 
   .stamp-pos {
@@ -40,5 +40,20 @@
 
     transition: translateX(-50%);
     z-index: z('9156time');
+  }
+
+  .trans-count {
+    font-size: resp-size(18px);
+    padding: resp-size(25px) resp-size(50px) 0;
+
+    > span:last-child {
+      float: right;
+      color: #00aee1;
+    }
+  }
+
+  #dealBoard,
+  #consumerBoard {
+    @include absolute(top 0 right 0 bottom 0 left 0);
   }
 }
