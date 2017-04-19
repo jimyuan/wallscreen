@@ -1,6 +1,4 @@
-const lineColor = '#00b6ca'
-const oddColor = '#172736'
-const evenColor = '#1b2a3a'
+import common from 'CHARTS/commonData'
 export default {
   grid: [{
     show: true,
@@ -17,27 +15,26 @@ export default {
       x2: 1,
       y2: 0,
       colorStops: [{
-        offset: 1 / 6, color: oddColor
+        offset: 1 / 6, color: common.oddColor
       }, {
-        offset: 1 / 6, color: evenColor
+        offset: 1 / 6, color: common.evenColor
       }, {
-        offset: 2 / 6, color: evenColor
+        offset: 2 / 6, color: common.evenColor
       }, {
-        offset: 2 / 6, color: oddColor
+        offset: 2 / 6, color: common.oddColor
       }, {
-        offset: 3 / 6, color: oddColor
+        offset: 3 / 6, color: common.oddColor
       }, {
-        offset: 3 / 6, color: evenColor
+        offset: 3 / 6, color: common.evenColor
       }, {
-        offset: 4 / 6, color: evenColor
+        offset: 4 / 6, color: common.evenColor
       }, {
-        offset: 4 / 6, color: oddColor
+        offset: 4 / 6, color: common.oddColor
       }, {
-        offset: 5 / 6, color: oddColor
+        offset: 5 / 6, color: common.oddColor
       }, {
-        offset: 5 / 6, color: evenColor
-      }],
-      globalCoord: false // 缺省为 false
+        offset: 5 / 6, color: common.evenColor
+      }]
     }
   }],
   xAxis: [{
@@ -45,7 +42,7 @@ export default {
     data: ['11月', '12月', '1月', '2月', '3月', '本月'],
     axisLine: {
       lineStyle: {
-        color: lineColor
+        color: common.lineColor
       }
     },
     axisTick: {
@@ -57,17 +54,16 @@ export default {
     axisLine: {
       onZero: false,
       lineStyle: {
-        color: lineColor
+        color: common.lineColor
       }
     }
   }],
   yAxis: [{
-    gridIndex: 0,
     type: 'value',
     splitNumber: 4,
     axisLine: {
       lineStyle: {
-        color: lineColor
+        color: common.lineColor
       }
     },
     axisTick: {
@@ -90,7 +86,7 @@ export default {
     axisLine: {
       onZero: false,
       lineStyle: {
-        color: lineColor
+        color: common.lineColor
       }
     }
   }],
@@ -100,7 +96,7 @@ export default {
     barWidth: '40%',
     itemStyle: {
       normal: {
-        color: lineColor
+        color: common.lineColor
       }
     },
     data: [5.0, 14.9, 7.0, 23.2, 25.6, 16.7]

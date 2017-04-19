@@ -33,3 +33,21 @@
   height: 100%;
   position: relative;
 }
+
+.trans-count {
+  font-size: resp-size(18px);
+  padding: resp-size(25px) resp-size(50px) 0;
+
+  > span:last-child {
+    float: right;
+    color: #00aee1;
+  }
+
+  > .total {
+    color: #00aee1;
+  }
+
+  & + & {
+    padding-top: 10px;
+  }
+}

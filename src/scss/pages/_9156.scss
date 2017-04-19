@@ -42,16 +42,6 @@
     z-index: z('9156time');
   }
 
-  .trans-count {
-    font-size: resp-size(18px);
-    padding: resp-size(25px) resp-size(50px) 0;
-
-    > span:last-child {
-      float: right;
-      color: #00aee1;
-    }
-  }
-
   #dealBoard,
   #consumerBoard {
     @include absolute(top 0 right 0 bottom 0 left 0);

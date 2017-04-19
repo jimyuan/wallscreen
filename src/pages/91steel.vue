@@ -1,7 +1,7 @@
 <template>
   <section class="site-91steel">
     <div class="dash-group-left">
-      <user-company-board></user-company-board>
+      <reg-count-board></reg-count-board>
       <hang-out-board></hang-out-board>
     </div>
     <div class="main-zone">
@@ -28,7 +28,7 @@
 import moment from 'moment'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
-import UserCompanyBoard from 'COMPONENTS/91steel/UserCompanyBoard'
+import RegCountBoard from 'COMPONENTS/91steel/RegCountBoard'
 import HangOutBoard from 'COMPONENTS/91steel/HangOutBoard'
 import IncreaseBoard from 'COMPONENTS/91steel/IncreaseBoard'
 import TradeCountBoard from 'COMPONENTS/91steel/TradeCountBoard'
@@ -56,6 +56,6 @@ export default {
       }
     }
   },
-  components: { TimeStamp, CountZone, UserCompanyBoard, HangOutBoard, IncreaseBoard, TradeCountBoard, RegionalDealBoard, HotTradeBoard, ChinaMap }
+  components: { TimeStamp, CountZone, RegCountBoard, HangOutBoard, IncreaseBoard, TradeCountBoard, RegionalDealBoard, HotTradeBoard, ChinaMap }
 }
 </script>

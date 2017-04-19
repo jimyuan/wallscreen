@@ -13,7 +13,7 @@
 
 <script>
 import echarts from 'echarts'
-import options from './DealBoardData'
+import options from './DealData'
 export default {
   data () {
     return {

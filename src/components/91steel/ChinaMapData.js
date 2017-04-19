@@ -1,24 +1,22 @@
 import 'echarts/map/js/china'
 import geoData from 'CHARTS/geoData'
 
-const geo9156 = geoData['9156']
+const geo91steel = geoData['91steel']
 const label = {
   normal: {
     show: true,
-    position: [10, 5],
+    position: [-10, -25],
+    formatter: '{b}',
     textStyle: {
       color: '#fff'
     }
   }
 }
-const provinceData = geoData.province.map(prov => ({
-  name: prov, label
-}))
 const cityPoint = {
   name: '城市',
   type: 'effectScatter',
   coordinateSystem: 'geo',
-  symbolSize: 4,
+  symbolSize: 10,
   effectType: 'ripple',
   rippleEffect: {
     brushType: 'stroke',
@@ -32,8 +30,10 @@ const cityPoint = {
       borderWidth: 1
     }
   },
-  data: Object.keys(geo9156).map(city => ({
-    value: geo9156[city]
+  label,
+  data: Object.keys(geo91steel).map(city => ({
+    name: city,
+    value: geo91steel[city]
   }))
 }
 
@@ -41,17 +41,12 @@ export default {
   backgroundColor: 'transparent',
   geo: {
     map: 'china',
-    x: '18%',
-    y: '13%',
-    zoom: 0.9,
-    z: 3,
     itemStyle: {
       normal: {
         areaColor: 'transparent',
         borderColor: '#00c7ff'
       }
     },
-    regions: provinceData,
     silent: true
   },
   series: [ cityPoint ]

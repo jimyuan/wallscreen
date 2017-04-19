@@ -55,4 +55,13 @@
     @include absolute(right resp-size(50px) bottom 0);
     z-index: z('9156time');
   }
+
+  .hang-out {
+    margin-top: 50%;
+  }
+}
+
+#regCount,
+#hangOut {
+  @include absolute(top 0 right 0 bottom 0 left 0);
 }

@@ -9,7 +9,7 @@
 
 <script>
 import echarts from 'echarts'
-import options from './ConsumerBoardData'
+import options from './ConsumerData'
 export default {
   mounted () {
     const chinaMap = echarts.init(document.getElementById('consumerBoard'))
