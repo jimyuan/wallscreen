@@ -97,9 +97,10 @@ const legend = [{
   orient: 'vertical',
   x: '15%',
   y: '55%',
-  itemGap: 7,
+  itemGap: common.view(10),
   textStyle: {
-    color: '#fff'
+    color: '#fff',
+    fontSize: common.view(16)
   },
   tooltip: {
     show: false
@@ -110,9 +111,10 @@ const legend = [{
   orient: 'vertical',
   x: '65%',
   y: '55%',
-  itemGap: 7,
+  itemGap: common.view(10),
   textStyle: {
-    color: '#fff'
+    color: '#fff',
+    fontSize: common.view(16)
   },
   tooltip: {
     show: false
@@ -160,7 +162,7 @@ const series = [{
       position: 'inside',
       formatter (obj) { return `${obj.percent.toFixed()}%` },
       textStyle: {
-        fontSize: 10
+        fontSize: common.view(13)
       }
     }
   },
@@ -216,7 +218,7 @@ const series = [{
       position: 'inside',
       formatter (obj) { return `${obj.percent.toFixed()}%` },
       textStyle: {
-        fontSize: 10
+        fontSize: common.view(13)
       }
     }
   },

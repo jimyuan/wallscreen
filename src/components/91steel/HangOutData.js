@@ -38,7 +38,7 @@ const grid = [{
 }, {
   show: true,
   containLabel: true,
-  x: '7%',
+  x: '8%',
   x2: '8%',
   y: '65%',
   y2: '15%',
@@ -73,7 +73,7 @@ const grid = [{
   }
 }]
 
-const xAxis = [{
+const xAxis1 = [{
   type: 'category',
   data: ['11月', '12月', '1月', '2月', '3月', '本月'],
   axisLine: {
@@ -93,27 +93,25 @@ const xAxis = [{
       color: common.lineColor
     }
   }
-}, {
+}]
+
+const xAxis2 = [{
   type: 'value',
   gridIndex: 1,
   splitNumber: 4,
-  min: 200,
   axisLine: {
     lineStyle: {
       color: common.lineColor
     }
   },
   axisTick: {
-    show: false
+    show: true
   },
   axisLabel: {
-    show: false
+    show: true
   },
   splitLine: {
-    show: true,
-    lineStyle: {
-      color: '#11202f'
-    }
+    show: false
   }
 }, {
   type: 'category',
@@ -127,7 +125,7 @@ const xAxis = [{
   }
 }]
 
-const yAxis = [{
+const yAxis1 = [{
   type: 'value',
   splitNumber: 4,
   min: 200,
@@ -163,18 +161,22 @@ const yAxis = [{
       color: common.lineColor
     }
   }
-}, {
+}]
+
+const yAxis2 = [{
   type: 'category',
   gridIndex: 1,
-  data: ['', '', ''],
+  boundaryGap: true,
   axisLine: {
     lineStyle: {
       color: common.lineColor
     }
   },
   axisTick: {
-    show: false
-  }
+    show: false,
+    alignWithLabel: true
+  },
+  data: ['']
 }, {
   type: 'category',
   gridIndex: 1,
@@ -189,11 +191,12 @@ const yAxis = [{
 
 const legend = [{
   orient: 'horizontal',
-  x: '7%',
-  y2: '10%',
-  itemGap: 7,
+  x: '8%',
+  y2: '6%',
+  itemGap: common.view(27),
   textStyle: {
-    color: '#fff'
+    color: '#fff',
+    fontSize: common.view(16)
   },
   tooltip: {
     show: false
@@ -202,11 +205,10 @@ const legend = [{
   data: ['成交量', '结算量']
 }]
 
+// 总成交量横向柱状图 data
 const series = [{
   name: '成交量',
   type: 'bar',
-  barWidth: '35%',
-  barGap: '20%',
   xAxisIndex: 2,
   yAxisIndex: 2,
   itemStyle: {
@@ -214,34 +216,22 @@ const series = [{
       color: common.lineColor
     }
   },
-  data: [{
-    name: '成交量',
-    value: 380
-  }, {
-    name: '结算量',
-    value: 830,
-    itemStyle: {
-      normal: {
-        color: '#8dbd1b'
-      }
-    }
-  }]
+  data: [380]
 }, {
   name: '结算量',
   type: 'bar',
+  barWidth: '20%',
+  barGap: '100%',
   xAxisIndex: 2,
   yAxisIndex: 2,
-  itemStyle: {
-    normal: {
-      color: '#8dbd1b'
-    }
-  }
+  data: [830]
 }]
 
 export default {
+  color: ['#8dbd1b'],
   grid,
-  xAxis,
-  yAxis,
+  xAxis: xAxis1.concat(xAxis2),
+  yAxis: yAxis1.concat(yAxis2),
   legend,
   series: [{
     name: '总挂牌量',

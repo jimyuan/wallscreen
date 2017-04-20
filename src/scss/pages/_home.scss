@@ -8,9 +8,12 @@
 
   > a {
     @include relative(top resp-size(80px));
-
-    display: block;
+    width: 33%;
     text-align: center;
+
+    > img {
+      margin: auto;
+    }
   }
 
   > .launch-bar {

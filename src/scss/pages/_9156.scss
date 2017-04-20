@@ -41,9 +41,4 @@
     transition: translateX(-50%);
     z-index: z('9156time');
   }
-
-  #dealBoard,
-  #consumerBoard {
-    @include absolute(top 0 right 0 bottom 0 left 0);
-  }
 }

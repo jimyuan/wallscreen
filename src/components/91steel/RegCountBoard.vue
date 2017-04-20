@@ -10,7 +10,7 @@
         <span>本月注册企业：{{ monthlyCompany | dataFormat }}</span>
         <span>累计注册企业：{{ totalCompany | dataFormat }}</span>
       </h2>
-      <div id="regCount"></div>
+      <div id="regCount" class="charts"></div>
     </div>
   </div>
 </template>

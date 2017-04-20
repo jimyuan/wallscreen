@@ -6,6 +6,10 @@
   }
 }
 
+.logo {
+  height: resp-size(85px);
+}
+
 .unstyled {
   list-style: none;
   margin: 0;
@@ -50,4 +54,8 @@
   & + & {
     padding-top: 10px;
   }
+}
+
+.charts {
+  @include absolute(top 0 right 0 bottom 0 left 0);
 }

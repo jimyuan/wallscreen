@@ -48,7 +48,7 @@
   }
 
   .map-zone {
-    @include absolute(left 0 right 0 bottom 0 top resp-size(355px));
+    top: resp-size(355px);
   }
 
   .stamp-pos {
@@ -59,9 +59,4 @@
   .hang-out {
     margin-top: 50%;
   }
-}
-
-#regCount,
-#hangOut {
-  @include absolute(top 0 right 0 bottom 0 left 0);
 }

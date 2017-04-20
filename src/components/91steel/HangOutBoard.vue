@@ -10,7 +10,7 @@
         <span class="total">总成交量：{{ totalDeal | dataFormat }}</span>
         <span>总结算量：{{ totalDone | dataFormat }}</span>
       </h2>
-      <div id="hangOut"></div>
+      <div id="hangOut" class="charts"></div>
     </div>
   </div>
 </template>

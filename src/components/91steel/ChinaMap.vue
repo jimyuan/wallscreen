@@ -1,5 +1,5 @@
 <template>
-  <div class="map-zone" id="chinaMap"></div>
+  <div class="charts map-zone" id="chinaMap"></div>
 </template>
 
 <script>

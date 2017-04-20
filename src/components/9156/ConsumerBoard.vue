@@ -2,7 +2,7 @@
   <div class="dash">
     <h1>成交用户分析</h1>
     <div class="board">
-      <div id="consumerBoard"></div>
+      <div id="consumerBoard" class="charts"></div>
     </div>
   </div>
 </template>
