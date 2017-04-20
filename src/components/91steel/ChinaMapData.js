@@ -41,6 +41,7 @@ export default {
   backgroundColor: 'transparent',
   geo: {
     map: 'china',
+    zoom: 1.1,
     itemStyle: {
       normal: {
         areaColor: 'transparent',

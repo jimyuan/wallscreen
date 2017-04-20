@@ -1,5 +1,7 @@
 import common from 'CHARTS/commonData'
 
+const textStyle = common.textStyle
+
 const grid = [{
   show: true,
   containLabel: true,
@@ -51,11 +53,8 @@ const legend = [{
   orient: 'horizontal',
   x: '10%',
   y2: '3%',
-  itemGap: common.view(27),
-  textStyle: {
-    color: '#fff',
-    fontSize: common.view(16)
-  },
+  itemGap: common.item28,
+  textStyle,
   tooltip: {
     show: false
   },

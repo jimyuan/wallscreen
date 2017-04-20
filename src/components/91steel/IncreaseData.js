@@ -13,27 +13,7 @@ const grid = [{
     y: 0,
     x2: 1,
     y2: 0,
-    colorStops: [{
-      offset: 1 / 6, color: common.oddColor
-    }, {
-      offset: 1 / 6, color: common.evenColor
-    }, {
-      offset: 2 / 6, color: common.evenColor
-    }, {
-      offset: 2 / 6, color: common.oddColor
-    }, {
-      offset: 3 / 6, color: common.oddColor
-    }, {
-      offset: 3 / 6, color: common.evenColor
-    }, {
-      offset: 4 / 6, color: common.evenColor
-    }, {
-      offset: 4 / 6, color: common.oddColor
-    }, {
-      offset: 5 / 6, color: common.oddColor
-    }, {
-      offset: 5 / 6, color: common.evenColor
-    }]
+    colorStops: common.gradient(6, common.oddColor, common.evenColor)
   }
 }]
 
@@ -97,27 +77,29 @@ const yAxis = [{
   }
 }]
 
+const series = [{
+  name: '运输量',
+  type: 'line',
+  symbol: 'circle',
+  symbolSize: common.symbol8,
+  itemStyle: {
+    normal: {
+      color: common.lineColor
+    }
+  },
+  lineStyle: {
+    normal: {
+      color: '#3b8378',
+      width: 1,
+      type: 'dashed'
+    }
+  },
+  data: [300, 450, 660, 520, 700, 830]
+}]
+
 export default {
   grid,
   xAxis,
   yAxis,
-  series: [{
-    name: '运输量',
-    type: 'line',
-    symbol: 'circle',
-    symbolSize: 6,
-    itemStyle: {
-      normal: {
-        color: common.lineColor
-      }
-    },
-    lineStyle: {
-      normal: {
-        color: '#3b8378',
-        width: 1,
-        type: 'dashed'
-      }
-    },
-    data: [300, 450, 660, 520, 700, 830]
-  }]
+  series
 }

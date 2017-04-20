@@ -1,4 +1,7 @@
 import common from 'CHARTS/commonData'
+
+const textStyle = common.textStyle
+
 const grid = [{
   show: true,
   containLabel: true,
@@ -13,27 +16,7 @@ const grid = [{
     y: 0,
     x2: 1,
     y2: 0,
-    colorStops: [{
-      offset: 1 / 6, color: common.oddColor
-    }, {
-      offset: 1 / 6, color: common.evenColor
-    }, {
-      offset: 2 / 6, color: common.evenColor
-    }, {
-      offset: 2 / 6, color: common.oddColor
-    }, {
-      offset: 3 / 6, color: common.oddColor
-    }, {
-      offset: 3 / 6, color: common.evenColor
-    }, {
-      offset: 4 / 6, color: common.evenColor
-    }, {
-      offset: 4 / 6, color: common.oddColor
-    }, {
-      offset: 5 / 6, color: common.oddColor
-    }, {
-      offset: 5 / 6, color: common.evenColor
-    }]
+    colorStops: common.gradient(6, common.oddColor, common.evenColor)
   }
 }, {
   show: true,
@@ -49,27 +32,7 @@ const grid = [{
     y: 0,
     x2: 1,
     y2: 0,
-    colorStops: [{
-      offset: 1 / 6, color: common.oddColor2
-    }, {
-      offset: 1 / 6, color: common.evenColor2
-    }, {
-      offset: 2 / 6, color: common.evenColor2
-    }, {
-      offset: 2 / 6, color: common.oddColor2
-    }, {
-      offset: 3 / 6, color: common.oddColor2
-    }, {
-      offset: 3 / 6, color: common.evenColor2
-    }, {
-      offset: 4 / 6, color: common.evenColor2
-    }, {
-      offset: 4 / 6, color: common.oddColor2
-    }, {
-      offset: 5 / 6, color: common.oddColor2
-    }, {
-      offset: 5 / 6, color: common.evenColor2
-    }]
+    colorStops: common.gradient(6, common.oddColor2, common.evenColor2)
   }
 }]
 
@@ -193,11 +156,8 @@ const legend = [{
   orient: 'horizontal',
   x: '8%',
   y2: '6%',
-  itemGap: common.view(27),
-  textStyle: {
-    color: '#fff',
-    fontSize: common.view(16)
-  },
+  itemGap: common.item28,
+  textStyle,
   tooltip: {
     show: false
   },
@@ -205,8 +165,29 @@ const legend = [{
   data: ['成交量', '结算量']
 }]
 
+// 总挂牌量曲线图
+const seriesLine = [{
+  name: '总挂牌量',
+  type: 'line',
+  symbol: 'circle',
+  symbolSize: common.symbol8,
+  itemStyle: {
+    normal: {
+      color: common.lineColor
+    }
+  },
+  lineStyle: {
+    normal: {
+      color: '#3b8378',
+      width: 1,
+      type: 'dashed'
+    }
+  },
+  data: [300, 450, 660, 520, 700, 830]
+}]
+
 // 总成交量横向柱状图 data
-const series = [{
+const seriesBar = [{
   name: '成交量',
   type: 'bar',
   xAxisIndex: 2,
@@ -233,23 +214,5 @@ export default {
   xAxis: xAxis1.concat(xAxis2),
   yAxis: yAxis1.concat(yAxis2),
   legend,
-  series: [{
-    name: '总挂牌量',
-    type: 'line',
-    symbol: 'circle',
-    symbolSize: 6,
-    itemStyle: {
-      normal: {
-        color: common.lineColor
-      }
-    },
-    lineStyle: {
-      normal: {
-        color: '#3b8378',
-        width: 1,
-        type: 'dashed'
-      }
-    },
-    data: [300, 450, 660, 520, 700, 830]
-  }].concat(series)
+  series: seriesLine.concat(seriesBar)
 }
