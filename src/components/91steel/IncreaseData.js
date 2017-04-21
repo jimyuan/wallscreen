@@ -12,14 +12,13 @@ const grid = [{
     x: 0,
     y: 0,
     x2: 1,
-    y2: 0,
-    colorStops: common.gradient(6, common.oddColor, common.evenColor)
+    y2: 0
   }
 }]
 
 const xAxis = [{
   type: 'category',
-  data: ['11月', '12月', '1月', '2月', '3月', '本月'],
+  data: [],
   axisLine: {
     lineStyle: {
       color: common.lineColor
@@ -94,7 +93,7 @@ const series = [{
       type: 'dashed'
     }
   },
-  data: [300, 450, 660, 520, 700, 830]
+  data: []
 }]
 
 export default {

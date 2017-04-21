@@ -10,10 +10,26 @@
 <script>
 import echarts from 'echarts'
 import options from './IncreaseData'
+import common from 'CHARTS/commonData'
 export default {
+  data () {
+    return {
+      // 折线图 category
+      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
+      yData: [300, 450, 660, 520, 700, 830]
+    }
+  },
   mounted () {
     const increase = echarts.init(document.getElementById('increase'))
+    // 设置坐标区斑马纹效果
+    options.grid[0].backgroundColor.colorStops = common.gradient(this.xData.length, common.oddColor, common.evenColor)
     increase.setOption(options)
+
+    // 加载数据
+    increase.setOption({
+      xAxis: {data: this.xData},
+      series: {data: this.yData}
+    })
   }
 }
 </script>

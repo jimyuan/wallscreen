@@ -46,7 +46,7 @@ const yAxis = [{
       color: common.lineColor
     }
   },
-  data: ['西北', '西南', '北方', '华东', '南方']
+  data: []
 }]
 
 const legend = [{
@@ -59,24 +59,24 @@ const legend = [{
     show: false
   },
   selectedMode: false,
-  data: ['挂牌量', '成交量']
+  data: []
 }]
 
 // 总成交量横向柱状图 data
 const series = [{
-  name: '挂牌量',
+  name: '',
   type: 'bar',
   itemStyle: {
     normal: {
       color: common.lineColor
     }
   },
-  data: [1120, 990, 1500, 810, 1000]
+  data: []
 }, {
-  name: '成交量',
+  name: '',
   type: 'bar',
   barGap: '0',
-  data: [1000, 800, 1250, 600, 690]
+  data: []
 }]
 
 export default {

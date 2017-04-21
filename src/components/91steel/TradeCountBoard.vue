@@ -32,10 +32,14 @@ export default {
     }
   },
   mounted () {
-    options.series[0].data = this.pieData
-
     const tradeCount = echarts.init(document.getElementById('tradeCount'))
     tradeCount.setOption(options)
+
+    // 数据加载
+    tradeCount.setOption({
+      legend: {data: this.pieData.map(item => item.name)},
+      series: {data: this.pieData}
+    })
   }
 }
 </script>

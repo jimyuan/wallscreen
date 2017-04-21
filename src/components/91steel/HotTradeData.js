@@ -14,7 +14,7 @@ export default {
     },
     itemGap: common.item16,
     selectedMode: false,
-    data: ['建材', '热卷', '厚板']
+    data: []
   }],
   series: [{
     name: '渠道销售排行',
@@ -27,6 +27,7 @@ export default {
       normal: {
         show: false
       }
-    }
+    },
+    data: []
   }]
 }

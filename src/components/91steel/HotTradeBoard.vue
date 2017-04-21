@@ -26,10 +26,14 @@ export default {
     }
   },
   mounted () {
-    options.series[0].data = this.pieData
-
     const hotTrade = echarts.init(document.getElementById('hotTrade'))
     hotTrade.setOption(options)
+
+    // 加载数据
+    hotTrade.setOption({
+      series: {data: this.pieData},
+      legend: {data: this.pieData.map(item => item.name)}
+    })
   }
 }
 </script>

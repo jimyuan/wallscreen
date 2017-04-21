@@ -27,3 +27,103 @@ cnpm run build
 # 生成编译打包分析报告
 cnpm run build --report
 ```
+## Mockup
+`/trade/other`
+```json
+{
+  "respCode": "respCodemock",
+  "memo": "memomock",
+  "data": {
+    "registerUsersCompanys": {
+      "allUsersCount": "allUsersCountmock",
+      "allCompanyCount": "allCompanyCountmock",
+      "companysRecords": [
+        {
+          "month": "monthmock",
+          "registerUsersCount": "registerUsersCountmock",
+          "registerCompanyCount": "registerCompanyCountmock",
+          "year": "yearmock"
+        }
+      ],
+      "sourceTypeTotal": [
+        {
+          "registerSourceTypeCode": "registerSourceTypeCodemock",
+          "registerSourceTypeName": "registerSourceTypeNamemock",
+          "registerUsersCount": 81,
+          "registerCompanyCount": 90
+        }
+      ],
+      "companyTypeTotal": [
+        {
+          "registerCompanyTypeCode": "registerCompanyTypeCodemock",
+          "registerCompanyTypeName": "registerCompanyTypeNamemock",
+          "registerUsersCount": "registerUsersCountmock",
+          "registerCompanyCount": "registerCompanyCountmock"
+        }
+      ]
+    },
+    "quotedAnalysis": {
+      "allQuotedAmount": "allQuotedAmountmock",
+      "allStatementsAmount": "allStatementsAmountmock",
+      "allTradeAmount": "allTradeAmountmock",
+      "quotedTradeRecords": [
+        {
+          "year": "yearmock",
+          "month": "monthmock",
+          "quotedAmount": 73,
+          "tradeAmount": 2
+        }
+      ]
+    },
+    "tradeAnalysis": {
+      "businessTypeRecords": [
+        {
+          "businessTypeCode": "businessTypeCodemock",
+          "businessTypeName": "businessTypeNamemock",
+          "tradeAmount": "tradeAmountmock"
+        }
+      ],
+      "regionRecords": [
+        {
+          "regionCode": "regionCodemock",
+          "regionName": "regionNamemock",
+          "tradeAmount": "tradeAmountmock",
+          "quotedAmount": "quotedAmountmock"
+        }
+      ],
+      "tradeTypeRecords": [
+        {
+          "tradeTypeCode": "tradeTypeCodemock",
+          "tradeTypeName": "tradeTypeNamemock",
+          "tradeAmount": "tradeAmountmock"
+        }
+      ]
+    }
+  }
+}
+```
+` /trade/getToday`
+```json
+{
+  "respCode": "respCodemock",
+  "memo": "memomock",
+  "data": {
+    "todayTradeAmount": 18,
+    "allTradeAmount": 62,
+    "todayTradeMoney": 71,
+    "allTradeMoney": 29,
+    "tradeRecords": [
+      {
+        "tradeTime": "tradeTimemock",
+        "cityCode": "cityCodemock",
+        "ctiyName": "ctiyNamemock",
+        "productTypeCode": "productTypeCodemock",
+        "productTypeName": "productTypeNamemock",
+        "tradeAmount": 66,
+        "tradeMoney": 37,
+        "id": 36
+      }
+    ]
+  }
+}
+```

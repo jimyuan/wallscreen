@@ -15,8 +15,7 @@ const grid = [{
     x: 0,
     y: 0,
     x2: 1,
-    y2: 0,
-    colorStops: common.gradient(6, common.oddColor, common.evenColor)
+    y2: 0
   }
 }, {
   show: true,
@@ -38,7 +37,6 @@ const grid = [{
 
 const xAxis1 = [{
   type: 'category',
-  data: ['11月', '12月', '1月', '2月', '3月', '本月'],
   axisLine: {
     lineStyle: {
       color: common.lineColor
@@ -46,7 +44,8 @@ const xAxis1 = [{
   },
   axisTick: {
     show: false
-  }
+  },
+  data: []
 }, {
   type: 'category',
   position: 'top',
@@ -183,7 +182,7 @@ const seriesLine = [{
       type: 'dashed'
     }
   },
-  data: [300, 450, 660, 520, 700, 830]
+  data: []
 }]
 
 // 总成交量横向柱状图 data
@@ -197,7 +196,7 @@ const seriesBar = [{
       color: common.lineColor
     }
   },
-  data: [380]
+  data: []
 }, {
   name: '结算量',
   type: 'bar',
@@ -205,7 +204,7 @@ const seriesBar = [{
   barGap: '100%',
   xAxisIndex: 2,
   yAxisIndex: 2,
-  data: [830]
+  data: []
 }]
 
 export default {

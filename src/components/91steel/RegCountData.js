@@ -15,14 +15,12 @@ const grid = [{
     x: 0,
     y: 0,
     x2: 1,
-    y2: 0,
-    colorStops: common.gradient(6, common.oddColor, common.evenColor)
+    y2: 0
   }
 }]
 
 const xAxis = [{
   type: 'category',
-  data: ['11月', '12月', '1月', '2月', '3月', '本月'],
   axisLine: {
     lineStyle: {
       color: common.lineColor
@@ -30,7 +28,8 @@ const xAxis = [{
   },
   axisTick: {
     show: false
-  }
+  },
+  data: []
 }, {
   type: 'category',
   position: 'top',
@@ -86,7 +85,7 @@ const legend = [{
     show: false
   },
   selectedMode: false,
-  data: ['PC端', '移动端']
+  data: []
 }, {
   orient: 'vertical',
   x: '65%',
@@ -97,9 +96,10 @@ const legend = [{
     show: false
   },
   selectedMode: false,
-  data: ['钢厂数', '终端数']
+  data: []
 }]
 
+// 2 个环形饼图数据
 const seriesPie = [{
   name: '客户端',
   type: 'pie',
@@ -110,23 +110,7 @@ const seriesPie = [{
   label: {
     normal: false
   },
-  data: [{
-    value: 335,
-    name: 'PC端',
-    itemStyle: {
-      normal: {
-        color: '#8dbd1b'
-      }
-    }
-  }, {
-    value: 810,
-    name: '移动端',
-    itemStyle: {
-      normal: {
-        color: '#0096c1'
-      }
-    }
-  }]
+  data: []
 }, {
   hoverAnimation: false,
   name: '客户端',
@@ -149,13 +133,7 @@ const seriesPie = [{
       borderColor: '#fff'
     }
   },
-  data: [{
-    value: 335,
-    name: 'PC端'
-  }, {
-    value: 810,
-    name: '移动端'
-  }]
+  data: []
 }, {
   name: '企业数量',
   hoverAnimation: false,
@@ -166,23 +144,7 @@ const seriesPie = [{
   label: {
     normal: false
   },
-  data: [{
-    value: 1035,
-    name: '钢厂数',
-    itemStyle: {
-      normal: {
-        color: '#f8b226'
-      }
-    }
-  }, {
-    value: 1548,
-    name: '终端数',
-    itemStyle: {
-      normal: {
-        color: '#e74127'
-      }
-    }
-  }]
+  data: []
 }, {
   name: '企业数量',
   hoverAnimation: false,
@@ -205,13 +167,7 @@ const seriesPie = [{
       borderColor: '#fff'
     }
   },
-  data: [{
-    value: 1035,
-    name: '钢厂数'
-  }, {
-    value: 1548,
-    name: '终端数'
-  }]
+  data: []
 }]
 
 const seriesLine = [{
@@ -231,10 +187,11 @@ const seriesLine = [{
       type: 'dashed'
     }
   },
-  data: [300, 450, 660, 520, 700, 830]
+  data: []
 }]
 
 export default {
+  color: ['#8dbd1b', '#0096c1', '#f8b226', '#e74127'],
   grid,
   xAxis,
   yAxis,
