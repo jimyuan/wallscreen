@@ -39,6 +39,19 @@ const cityPoint = {
 
 export default {
   backgroundColor: 'transparent',
+  tooltip: {
+    show: true,
+    trigger: 'item',
+    triggerOn: 'none',
+    padding: [5, 10],
+    position ([x, y]) {
+      return [x - 10, y + 20]
+    },
+    extraCssText: `
+      background: rgb(10, 48, 86);
+      color: #31b7d4;
+      border: 1px solid currentColor`
+  },
   geo: {
     map: 'china',
     zoom: 1.1,

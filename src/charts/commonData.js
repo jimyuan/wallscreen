@@ -6,7 +6,7 @@ function view (data) {
     lg: 1280
   }
   // 正式环境 cur = rw.lg
-  const cur = rw.lg
+  const cur = rw.md
   return data * cur / rw.lg
 }
 
