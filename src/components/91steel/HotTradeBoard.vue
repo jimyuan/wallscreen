@@ -11,28 +11,36 @@
 import echarts from 'echarts'
 import options from './HotTradeData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      pieData: [{
-        value: 123234,
-        name: '建材'
-      }, {
-        value: 73186,
-        name: '热卷'
-      }, {
-        value: 33392,
-        name: '厚板'
-      }]
+      pieData: this.data.map(item => ({
+        name: item.tradeTypeName,
+        value: item.tradeAmount
+      }))
     }
   },
+
+  computed: {
+    pieDataFormat () {
+      const pieData = this.pieData
+      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
+      return pieData.map(item => ({
+        value: item.value,
+        name: `${item.name}   (${(item.value * 100 / sum).toFixed()}%)`
+      }))
+    }
+  },
+
   mounted () {
     const hotTrade = echarts.init(document.getElementById('hotTrade'))
     hotTrade.setOption(options)
 
     // 加载数据
     hotTrade.setOption({
-      series: {data: this.pieData},
-      legend: {data: this.pieData.map(item => item.name)}
+      series: {data: this.pieDataFormat},
+      legend: {data: this.pieDataFormat.map(item => item.name)}
     })
   }
 }

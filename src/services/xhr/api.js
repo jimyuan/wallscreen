@@ -1,7 +1,8 @@
 const api = {
-  list: '/start',
-  login: '/login',
-  logout: '/logout'
+  '91steel': {
+    other: '/trade/other',
+    today: '/trade/getToday'
+  }
 }
 
 export default api

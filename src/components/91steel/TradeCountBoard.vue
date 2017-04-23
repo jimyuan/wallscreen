@@ -11,34 +11,36 @@
 import echarts from 'echarts'
 import options from './TradeCountData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      pieData: [{
-        value: 123234,
-        name: '申银量'
-      }, {
-        value: 73186,
-        name: '寄售量'
-      }, {
-        value: 33392,
-        name: '自营量'
-      }, {
-        value: 18211,
-        name: '工程配送'
-      }, {
-        value: 9764,
-        name: '撮合'
-      }]
+      pieData: this.data.map(item => ({
+        name: item.businessTypeName,
+        value: item.tradeAmount
+      }))
     }
   },
+
+  computed: {
+    pieDataFormat () {
+      const pieData = this.pieData
+      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
+      return pieData.map(item => ({
+        value: item.value,
+        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%)`
+      }))
+    }
+  },
+
   mounted () {
     const tradeCount = echarts.init(document.getElementById('tradeCount'))
     tradeCount.setOption(options)
 
     // 数据加载
     tradeCount.setOption({
-      legend: {data: this.pieData.map(item => item.name)},
-      series: {data: this.pieData}
+      legend: {data: this.pieDataFormat.map(item => item.name)},
+      series: {data: this.pieDataFormat}
     })
   }
 }

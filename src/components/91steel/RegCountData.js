@@ -43,8 +43,6 @@ const xAxis = [{
 
 const yAxis = [{
   type: 'value',
-  splitNumber: 4,
-  min: 200,
   axisLine: {
     lineStyle: {
       color: common.lineColor
@@ -171,7 +169,7 @@ const seriesPie = [{
 }]
 
 const seriesLine = [{
-  name: '运输量',
+  name: '注册用户',
   type: 'line',
   symbol: 'circle',
   symbolSize: common.symbol8,
@@ -183,6 +181,24 @@ const seriesLine = [{
   lineStyle: {
     normal: {
       color: '#3b8378',
+      width: 1,
+      type: 'dashed'
+    }
+  },
+  data: []
+}, {
+  name: '注册企业',
+  type: 'line',
+  symbol: 'circle',
+  symbolSize: common.symbol8,
+  itemStyle: {
+    normal: {
+      color: '#f8b226'
+    }
+  },
+  lineStyle: {
+    normal: {
+      color: '#f8b226',
       width: 1,
       type: 'dashed'
     }

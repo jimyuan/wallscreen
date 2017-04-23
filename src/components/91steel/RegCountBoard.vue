@@ -20,30 +20,34 @@ import echarts from 'echarts'
 import options from './RegCountData'
 import common from 'CHARTS/commonData'
 export default {
+  props: ['data'],
+
   data () {
     return {
       // 本月注册用户
-      monthlyUser: 1811,
+      monthlyUser: this.data.companysRecords.slice(-1)[0].registerUsersCount,
       // 本月注册企业
-      monthlyCompany: 311,
+      monthlyCompany: this.data.companysRecords.slice(-1)[0].registerCompanyCount,
       // 累计注册用户
-      totalUser: 32290,
+      totalUser: this.data.allUsersCount,
       // 累计注册企业
-      totalCompany: 6322,
+      totalCompany: this.data.allCompanyCount,
       // 折线图 category
-      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
-      // 折线图 data
-      yData: [300, 450, 660, 520, 700, 830],
+      xData: this.data.companysRecords.map(item => item.month),
+      // 折线图注册用户 data
+      yData1: this.data.companysRecords.map(item => item.registerUsersCount),
+      // 折线图注册企业 data
+      yData2: this.data.companysRecords.map(item => item.registerCompanyCount),
       // 客户端饼图1 data
-      pieData1: [
-        {name: 'PC 端', value: 335},
-        {name: '移动端', value: 810}
-      ],
+      pieData1: this.data.sourceTypeTotal.map(item => ({
+        name: item.registerSourceTypeName,
+        value: item.registerUsersCount
+      })),
       // 客户端饼图2 data
-      pieData2: [
-        {name: '钢厂数', value: 1225},
-        {name: '终端数', value: 861}
-      ]
+      pieData2: this.data.companyTypeTotal.map(item => ({
+        name: item.registerCompanyTypeName,
+        value: item.registerCompanyCount
+      }))
     }
   },
 
@@ -57,7 +61,8 @@ export default {
     regCount.setOption({
       xAxis: {data: this.xData},
       series: [
-        {data: this.yData},
+        {data: this.yData1},
+        {data: this.yData2},
         {data: this.pieData1},
         {data: this.pieData1},
         {data: this.pieData2},

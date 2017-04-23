@@ -8,5 +8,5 @@ export default data => {
     }
     return num + result
   }
-  return null
+  return 0
 }

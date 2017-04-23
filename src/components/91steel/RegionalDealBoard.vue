@@ -11,12 +11,17 @@
 import echarts from 'echarts'
 import options from './RegionalDealData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      yData: ['西北', '西南', '北方', '华东', '南方'],
-      x1Data: [1120, 990, 1500, 810, 1000],
+      // 区域名称 data
+      yData: this.data.map(item => item.regionName),
+      // 挂牌量 data
+      x1Data: this.data.map(item => item.quotedAmount),
       x1Name: '挂牌量',
-      x2Data: [1000, 800, 1250, 600, 690],
+      // 成交量 data
+      x2Data: this.data.map(item => item.tradeAmount),
       x2Name: '成交量'
     }
   },

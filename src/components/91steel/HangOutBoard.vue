@@ -20,20 +20,22 @@ import echarts from 'echarts'
 import options from './HangOutData'
 import common from 'CHARTS/commonData'
 export default {
+  props: ['data'],
+
   data () {
     return {
       // 总挂牌量
-      totalHangOut: 222393,
+      totalHangOut: this.data.allQuotedAmount,
       // 总成交量
-      totalDeal: 3293,
+      totalDeal: this.data.allStatementsAmount,
       // 总结算量
-      totalDone: 1392377,
+      totalDone: this.data.allTradeAmount,
       // 总挂牌量 category
-      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
+      xData: this.data.quotedTradeRecords.map(item => item.month),
       // 总挂牌量 data
-      yData: [300, 450, 660, 520, 700, 830],
+      yData: this.data.quotedTradeRecords.map(item => item.quotedAmount),
       // 成交量 & 结算量
-      barData: [1100, 1300]
+      barData: [this.data.allTradeAmount, this.data.allStatementsAmount]
     }
   },
   mounted () {

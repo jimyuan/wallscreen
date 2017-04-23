@@ -89,8 +89,6 @@ const xAxis2 = [{
 
 const yAxis1 = [{
   type: 'value',
-  splitNumber: 4,
-  min: 200,
   name: '单位：万吨',
   nameTextStyle: {
     color: '#fff'

@@ -12,11 +12,13 @@ import echarts from 'echarts'
 import options from './IncreaseData'
 import common from 'CHARTS/commonData'
 export default {
+  props: ['data'],
+
   data () {
     return {
       // 折线图 category
-      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
-      yData: [300, 450, 660, 520, 700, 830]
+      xData: this.data.quotedTradeRecords.map(item => item.month),
+      yData: this.data.quotedTradeRecords.map(item => item.tradeAmount)
     }
   },
   mounted () {
