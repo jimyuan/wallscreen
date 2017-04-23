@@ -6,23 +6,22 @@ export default {
   color: common.colorArr,
   legend: [{
     orient: 'vertical',
-    x: '60%',
-    y: '14%',
+    x: '50%',
+    y: '17%',
     textStyle,
+    itemGap: common.item10,
     tooltip: {
       show: false
     },
-    itemGap: common.item16,
     selectedMode: false,
     data: []
   }],
   series: [{
-    name: '渠道销售排行',
     hoverAnimation: false,
     type: 'pie',
     startAngle: 0,
-    radius: '70%',
-    center: ['30%', '50%'],
+    radius: '60%',
+    center: ['20%', '50%'],
     label: {
       normal: {
         show: false
