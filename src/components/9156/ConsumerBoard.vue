@@ -3,6 +3,38 @@
     <h1>成交用户分析</h1>
     <div class="board">
       <div id="consumerBoard" class="charts"></div>
+      <div class="table-consumer">
+        <table>
+          <thead>
+            <tr>
+              <th>地域</th>
+              <th>运输量(吨)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lorem.</td>
+              <td>Voluptas?</td>
+            </tr>
+            <tr>
+              <td>Lorem.</td>
+              <td>Nam?</td>
+            </tr>
+            <tr>
+              <td>Lorem.</td>
+              <td>Sunt.</td>
+            </tr>
+            <tr>
+              <td>Lorem.</td>
+              <td>Excepturi?</td>
+            </tr>
+            <tr>
+              <td>Lorem.</td>
+              <td>Eius.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
