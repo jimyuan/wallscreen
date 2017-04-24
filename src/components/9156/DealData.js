@@ -1,4 +1,5 @@
 import common from 'CHARTS/commonData'
+import lineData from 'CHARTS/lineData'
 export default {
   grid: [{
     show: true,
@@ -37,68 +38,7 @@ export default {
       }]
     }
   }],
-  xAxis: [{
-    type: 'category',
-    data: ['11月', '12月', '1月', '2月', '3月', '本月'],
-    axisLine: {
-      lineStyle: {
-        color: common.lineColor
-      }
-    },
-    axisTick: {
-      show: false
-    }
-  }, {
-    type: 'category',
-    position: 'top',
-    axisLine: {
-      onZero: false,
-      lineStyle: {
-        color: common.lineColor
-      }
-    }
-  }],
-  yAxis: [{
-    type: 'value',
-    splitNumber: 4,
-    axisLine: {
-      lineStyle: {
-        color: common.lineColor
-      }
-    },
-    axisTick: {
-      show: false
-    },
-    axisLabel: {
-      textStyle: {
-        fontSize: 10
-      }
-    },
-    splitLine: {
-      show: true,
-      lineStyle: {
-        color: '#11202f'
-      }
-    }
-  }, {
-    type: 'category',
-    position: 'top',
-    axisLine: {
-      onZero: false,
-      lineStyle: {
-        color: common.lineColor
-      }
-    }
-  }],
-  series: [{
-    name: '运输量',
-    type: 'bar',
-    barWidth: '40%',
-    itemStyle: {
-      normal: {
-        color: common.lineColor
-      }
-    },
-    data: [5.0, 14.9, 7.0, 23.2, 25.6, 16.7]
-  }]
+  xAxis: lineData().xAxis,
+  yAxis: lineData().yAxis,
+  series: lineData().series
 }

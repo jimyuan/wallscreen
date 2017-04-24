@@ -9,7 +9,7 @@
 
 <script>
 import echarts from 'echarts'
-import options from './CargoData'
+import options from './CargoData.js'
 export default {
   data () {
     return {
@@ -23,7 +23,7 @@ export default {
 
   mounted () {
     const cargoBoard = echarts.init(document.getElementById('cargoBoard'))
-    cargoBoard.setOption(options)
+    cargoBoard.setOption(Object.assign({}, options))
 
     // 数据加载
     cargoBoard.setOption({

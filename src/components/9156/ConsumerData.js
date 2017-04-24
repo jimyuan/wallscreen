@@ -1,145 +1,40 @@
+import common from 'CHARTS/commonData'
+import ringData from 'CHARTS/ringData'
+
+// 2 个环形饼图 legend
+const legend = [ringData().legend, ringData().legend]
+legend[0] = Object.assign(legend[0], {
+  x: '10%',
+  y: '3%'
+})
+legend[1] = Object.assign(legend[1], {
+  x: '40%',
+  y: '3%'
+})
+
+// 2 个环形饼图 series
+const argus = [{
+  radius: ['40%', '60%'],
+  center: ['20%', '65%']
+}, {
+  radius: [0, '41%'],
+  center: ['20%', '65%']
+}, {
+  radius: ['40%', '60%'],
+  center: ['50%', '65%']
+}, {
+  radius: [0, '41%'],
+  center: ['50%', '65%']
+}]
+const series = ringData().series.concat(ringData().series).map((item, index) => {
+  return {
+    ...item,
+    ...argus[index]
+  }
+})
+
 export default {
-  legend: [{
-    orient: 'vertical',
-    x: '10%',
-    y: '3%',
-    itemGap: 7,
-    textStyle: {
-      color: '#fff'
-    },
-    tooltip: {
-      show: false
-    },
-    selectedMode: false,
-    data: ['PC端', '移动端']
-  }, {
-    orient: 'vertical',
-    x: '40%',
-    y: '3%',
-    itemGap: 7,
-    textStyle: {
-      color: '#fff'
-    },
-    tooltip: {
-      show: false
-    },
-    selectedMode: false,
-    data: ['新用户', '老用户']
-  }],
-  tooltip: {
-    trigger: 'none'
-  },
-  series: [{
-    name: '客户端',
-    type: 'pie',
-    z: 3,
-    hoverAnimation: false,
-    radius: ['40%', '60%'],
-    center: ['20%', '65%'],
-    label: {
-      normal: false
-    },
-    data: [{
-      value: 335,
-      name: 'PC端',
-      itemStyle: {
-        normal: {
-          color: '#8dbd1b'
-        }
-      }
-    }, {
-      value: 310,
-      name: '移动端',
-      itemStyle: {
-        normal: {
-          color: '#0096c1'
-        }
-      }
-    }]
-  }, {
-    hoverAnimation: false,
-    name: '客户端',
-    type: 'pie',
-    radius: [0, '41%'],
-    center: ['20%', '65%'],
-    label: {
-      normal: {
-        show: true,
-        position: 'inside',
-        formatter (obj) { return `${obj.percent.toFixed()}%` },
-        textStyle: {
-          fontSize: 10
-        }
-      }
-    },
-    itemStyle: {
-      normal: {
-        color: 'transparent',
-        borderColor: '#fff'
-      }
-    },
-    data: [{
-      value: 335,
-      name: 'PC端'
-    }, {
-      value: 310,
-      name: '移动端'
-    }]
-  }, {
-    name: '访问来源',
-    hoverAnimation: false,
-    type: 'pie',
-    z: 3,
-    radius: ['40%', '60%'],
-    center: ['50%', '65%'],
-    label: {
-      normal: false
-    },
-    data: [{
-      value: 1035,
-      name: '新用户',
-      itemStyle: {
-        normal: {
-          color: '#f8b226'
-        }
-      }
-    }, {
-      value: 1548,
-      name: '老用户',
-      itemStyle: {
-        normal: {
-          color: '#e74127'
-        }
-      }
-    }]
-  }, {
-    name: '访问来源',
-    hoverAnimation: false,
-    type: 'pie',
-    radius: [0, '41%'],
-    center: ['50%', '65%'],
-    label: {
-      normal: {
-        show: true,
-        position: 'inside',
-        formatter (obj) { return `${obj.percent.toFixed()}%` },
-        textStyle: {
-          fontSize: 10
-        }
-      }
-    },
-    itemStyle: {
-      normal: {
-        color: 'transparent',
-        borderColor: '#fff'
-      }
-    },
-    data: [{
-      value: 1035,
-      name: '新用户'
-    }, {
-      value: 1548,
-      name: '老用户'
-    }]
-  }]
+  color: common.ringColor,
+  legend,
+  series
 }

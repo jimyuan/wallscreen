@@ -9,7 +9,7 @@
 
 <script>
 import echarts from 'echarts'
-import options from './ChannelData'
+import options from './ChannelData.js'
 export default {
   data () {
     return {
@@ -25,8 +25,7 @@ export default {
 
   mounted () {
     const channelBoard = echarts.init(document.getElementById('channelBoard'))
-    channelBoard.setOption(options)
-
+    channelBoard.setOption(Object.assign({}, options))
     // 数据加载
     channelBoard.setOption({
       legend: {data: this.pieData.map(item => item.name)},

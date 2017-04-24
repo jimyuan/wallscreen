@@ -62,7 +62,19 @@ export default {
       xAxis: {data: this.xData},
       series: [
         {data: this.yData1},
-        {data: this.yData2},
+        {
+          data: this.yData2,
+          lineStyle: {
+            normal: {
+              color: '#f8b226'
+            }
+          },
+          itemStyle: {
+            normal: {
+              color: '#f8b226'
+            }
+          }
+        },
         {data: this.pieData1},
         {data: this.pieData1},
         {data: this.pieData2},

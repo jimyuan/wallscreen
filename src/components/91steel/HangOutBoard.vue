@@ -49,6 +49,9 @@ export default {
       xAxis: [
         {data: this.xData}
       ],
+      yAxis: [
+        {name: '单位：万元'}
+      ],
       series: [
         {data: this.yData},
         {data: this.barData.splice(0, 1)},

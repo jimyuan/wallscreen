@@ -1,4 +1,4 @@
-import common from 'CHARTS/commonData'
+import lineData from 'CHARTS/lineData'
 const grid = [{
   show: true,
   containLabel: true,
@@ -16,85 +16,9 @@ const grid = [{
   }
 }]
 
-const xAxis = [{
-  type: 'category',
-  data: [],
-  axisLine: {
-    lineStyle: {
-      color: common.lineColor
-    }
-  },
-  axisTick: {
-    show: false
-  }
-}, {
-  type: 'category',
-  position: 'top',
-  axisLine: {
-    onZero: false,
-    lineStyle: {
-      color: common.lineColor
-    }
-  }
-}]
-
-const yAxis = [{
-  type: 'value',
-  splitNumber: 4,
-  min: 200,
-  name: '单位：万元',
-  nameTextStyle: {
-    color: '#fff'
-  },
-  axisLine: {
-    lineStyle: {
-      color: common.lineColor
-    }
-  },
-  axisTick: {
-    show: false
-  },
-  axisLabel: {
-    textStyle: {
-      fontSize: 10
-    }
-  },
-  splitLine: {
-    show: true,
-    lineStyle: {
-      color: '#11202f'
-    }
-  }
-}, {
-  type: 'category',
-  position: 'top',
-  axisLine: {
-    onZero: false,
-    lineStyle: {
-      color: common.lineColor
-    }
-  }
-}]
-
-const series = [{
-  name: '运输量',
-  type: 'line',
-  symbol: 'circle',
-  symbolSize: common.symbol8,
-  itemStyle: {
-    normal: {
-      color: common.lineColor
-    }
-  },
-  lineStyle: {
-    normal: {
-      color: '#3b8378',
-      width: 1,
-      type: 'dashed'
-    }
-  },
-  data: []
-}]
+const xAxis = lineData().xAxis
+const yAxis = lineData().yAxis
+const series = lineData().series
 
 export default {
   grid,

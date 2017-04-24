@@ -14,17 +14,35 @@
 <script>
 import echarts from 'echarts'
 import options from './DealData'
+import common from 'CHARTS/commonData'
 export default {
   data () {
     return {
       monthCount: 1235,
-      totalCount: 54321
+      totalCount: 54321,
+      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
+      yData: [5.0, 14.9, 7.0, 23.2, 25.6, 16.7]
     }
   },
 
   mounted () {
-    const chinaMap = echarts.init(document.getElementById('dealBoard'))
-    chinaMap.setOption(options)
+    const dealBoard = echarts.init(document.getElementById('dealBoard'))
+    dealBoard.setOption(options)
+
+    // 数据加载
+    dealBoard.setOption({
+      xData: {data: this.xData},
+      series: [{
+        data: this.yData,
+        type: 'bar',
+        barWidth: '40%',
+        itemStyle: {
+          normal: {
+            color: common.lineColor
+          }
+        }
+      }]
+    })
   }
 }
 </script>

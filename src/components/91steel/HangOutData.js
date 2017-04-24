@@ -1,4 +1,5 @@
 import common from 'CHARTS/commonData'
+import lineData from 'CHARTS/lineData'
 
 const textStyle = common.textStyle
 
@@ -35,27 +36,7 @@ const grid = [{
   }
 }]
 
-const xAxis1 = [{
-  type: 'category',
-  axisLine: {
-    lineStyle: {
-      color: common.lineColor
-    }
-  },
-  axisTick: {
-    show: false
-  },
-  data: []
-}, {
-  type: 'category',
-  position: 'top',
-  axisLine: {
-    onZero: false,
-    lineStyle: {
-      color: common.lineColor
-    }
-  }
-}]
+const xAxis1 = lineData().xAxis
 
 const xAxis2 = [{
   type: 'value',
@@ -87,41 +68,7 @@ const xAxis2 = [{
   }
 }]
 
-const yAxis1 = [{
-  type: 'value',
-  name: '单位：万吨',
-  nameTextStyle: {
-    color: '#fff'
-  },
-  axisLine: {
-    lineStyle: {
-      color: common.lineColor
-    }
-  },
-  axisTick: {
-    show: false
-  },
-  axisLabel: {
-    textStyle: {
-      fontSize: 10
-    }
-  },
-  splitLine: {
-    show: true,
-    lineStyle: {
-      color: '#11202f'
-    }
-  }
-}, {
-  type: 'category',
-  position: 'right',
-  axisLine: {
-    onZero: false,
-    lineStyle: {
-      color: common.lineColor
-    }
-  }
-}]
+const yAxis1 = lineData().yAxis
 
 const yAxis2 = [{
   type: 'category',
@@ -163,25 +110,7 @@ const legend = [{
 }]
 
 // 总挂牌量曲线图
-const seriesLine = [{
-  name: '总挂牌量',
-  type: 'line',
-  symbol: 'circle',
-  symbolSize: common.symbol8,
-  itemStyle: {
-    normal: {
-      color: common.lineColor
-    }
-  },
-  lineStyle: {
-    normal: {
-      color: '#3b8378',
-      width: 1,
-      type: 'dashed'
-    }
-  },
-  data: []
-}]
+const seriesLine = lineData().series
 
 // 总成交量横向柱状图 data
 const seriesBar = [{
@@ -208,8 +137,8 @@ const seriesBar = [{
 export default {
   color: ['#8dbd1b'],
   grid,
+  legend,
   xAxis: xAxis1.concat(xAxis2),
   yAxis: yAxis1.concat(yAxis2),
-  legend,
   series: seriesLine.concat(seriesBar)
 }

@@ -39,6 +39,8 @@ export default {
   evenColor2: '#363636',
   // 饼图颜色序
   colorArr: ['#0097c2', '#f7b52c', '#ca7c27', '#009844', '#8dc21f'],
+  // 环装图色序
+  ringColor: ['#8dbd1b', '#0096c1', '#f8b226', '#e74127'],
   // 全局文字样式
   textStyle: {
     color: '#fff',

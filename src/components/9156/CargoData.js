@@ -1,32 +1,12 @@
-import common from 'CHARTS/commonData'
+import pieData from 'CHARTS/pieData'
 
-const textStyle = common.textStyle
-
-export default {
-  color: common.colorArr,
-  legend: [{
-    orient: 'vertical',
-    x: '50%',
-    y: '30%',
-    textStyle,
-    itemGap: common.item16,
-    tooltip: {
-      show: false
-    },
-    selectedMode: false,
-    data: []
-  }],
-  series: [{
-    hoverAnimation: false,
-    type: 'pie',
-    startAngle: 0,
-    radius: '60%',
-    center: ['20%', '50%'],
-    label: {
-      normal: {
-        show: false
-      }
-    },
-    data: []
-  }]
-}
+const cargoData = {...pieData()}
+cargoData.legend[0] = Object.assign(cargoData.legend[0], {
+  x: '50%',
+  y: '30%'
+})
+cargoData.series[0] = Object.assign(cargoData.series[0], {
+  radius: '60%',
+  center: ['20%', '50%']
+})
+export default cargoData

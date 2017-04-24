@@ -30,6 +30,9 @@ export default {
     // 加载数据
     increase.setOption({
       xAxis: {data: this.xData},
+      yAxis: [
+        {name: '单位：万元'}
+      ],
       series: {data: this.yData}
     })
   }
