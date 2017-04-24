@@ -3,6 +3,8 @@ import lineData from 'CHARTS/lineData'
 
 const textStyle = common.textStyle
 
+const backgroundColor = common.backgroundColor
+
 const grid = [{
   show: true,
   containLabel: true,
@@ -11,13 +13,7 @@ const grid = [{
   y: '20%',
   y2: '50%',
   borderWidth: 0,
-  backgroundColor: {
-    type: 'linear',
-    x: 0,
-    y: 0,
-    x2: 1,
-    y2: 0
-  }
+  backgroundColor
 }, {
   show: true,
   containLabel: true,
@@ -26,17 +22,10 @@ const grid = [{
   y: '65%',
   y2: '15%',
   borderWidth: 0,
-  backgroundColor: {
-    type: 'linear',
-    x: 0,
-    y: 0,
-    x2: 1,
-    y2: 0,
-    colorStops: common.gradient(6, common.oddColor2, common.evenColor2)
-  }
+  backgroundColor
 }]
 
-const xAxis1 = lineData().xAxis
+const xAxis1 = lineData.xAxis
 
 const xAxis2 = [{
   type: 'value',
@@ -68,7 +57,7 @@ const xAxis2 = [{
   }
 }]
 
-const yAxis1 = lineData().yAxis
+const yAxis1 = lineData.yAxis
 
 const yAxis2 = [{
   type: 'category',
@@ -110,7 +99,7 @@ const legend = [{
 }]
 
 // 总挂牌量曲线图
-const seriesLine = lineData().series
+const seriesLine = lineData.series
 
 // 总成交量横向柱状图 data
 const seriesBar = [{

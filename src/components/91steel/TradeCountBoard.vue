@@ -36,6 +36,16 @@ export default {
   mounted () {
     const tradeCount = echarts.init(document.getElementById('tradeCount'))
     tradeCount.setOption(options)
+    tradeCount.setOption({
+      legend: [{
+        x: '60%',
+        y: '14%'
+      }],
+      series: [{
+        radius: '70%',
+        center: ['30%', '50%']
+      }]
+    })
 
     // 数据加载
     tradeCount.setOption({

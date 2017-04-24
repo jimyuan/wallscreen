@@ -16,9 +16,11 @@ const grid = [{
   }
 }]
 
-const xAxis = lineData().xAxis
-const yAxis = lineData().yAxis
-const series = lineData().series
+const xAxis = lineData.xAxis
+
+const yAxis = lineData.yAxis
+
+const series = lineData.series
 
 export default {
   grid,

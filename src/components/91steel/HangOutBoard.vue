@@ -38,19 +38,30 @@ export default {
       barData: [this.data.allTradeAmount, this.data.allStatementsAmount]
     }
   },
+
   mounted () {
     const hangOut = echarts.init(document.getElementById('hangOut'))
-    // 设置坐标区斑马纹效果
-    options.grid[0].backgroundColor.colorStops = common.gradient(this.xData.length, common.oddColor, common.evenColor)
     hangOut.setOption(options)
+    hangOut.setOption({
+      yAxis: [{
+        name: '单位: 万元'
+      }],
+      grid: [{
+        // 设置坐标区斑马纹效果
+        backgroundColor: {
+          colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
+        }
+      }, {
+        backgroundColor: {
+          colorStops: common.gradient(6, common.oddColor2, common.evenColor2)
+        }
+      }]
+    })
 
     // 加载数据
     hangOut.setOption({
       xAxis: [
         {data: this.xData}
-      ],
-      yAxis: [
-        {name: '单位：万元'}
       ],
       series: [
         {data: this.yData},

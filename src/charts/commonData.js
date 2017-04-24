@@ -53,5 +53,13 @@ export default {
   // 折线图圆点大小
   symbol8: view(8),
   // 字体尺寸
-  font13: view(13)
+  font13: view(13),
+  // 折线图渐变背景
+  backgroundColor: {
+    type: 'linear',
+    x: 0,
+    y: 0,
+    x2: 1,
+    y2: 0
+  }
 }

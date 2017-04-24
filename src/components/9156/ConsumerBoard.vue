@@ -26,6 +26,28 @@ export default {
   mounted () {
     const consumerBoard = echarts.init(document.getElementById('consumerBoard'))
     consumerBoard.setOption(options)
+    consumerBoard.setOption({
+      legend: [{
+        x: '10%',
+        y: '3%'
+      }, {
+        x: '40%',
+        y: '3%'
+      }],
+      series: [{
+        radius: ['40%', '60%'],
+        center: ['20%', '65%']
+      }, {
+        radius: [0, '41%'],
+        center: ['20%', '65%']
+      }, {
+        radius: ['40%', '60%'],
+        center: ['50%', '65%']
+      }, {
+        radius: [0, '41%'],
+        center: ['50%', '65%']
+      }]
+    })
 
     // 数据加载
     consumerBoard.setOption({

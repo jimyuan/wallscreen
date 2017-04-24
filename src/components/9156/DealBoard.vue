@@ -28,12 +28,13 @@ export default {
   mounted () {
     const dealBoard = echarts.init(document.getElementById('dealBoard'))
     dealBoard.setOption(options)
-
-    // 数据加载
     dealBoard.setOption({
-      xData: {data: this.xData},
+      grid: [{
+        backgroundColor: {
+          colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
+        }
+      }],
       series: [{
-        data: this.yData,
         type: 'bar',
         barWidth: '40%',
         itemStyle: {
@@ -42,6 +43,12 @@ export default {
           }
         }
       }]
+    })
+
+    // 数据加载
+    dealBoard.setOption({
+      xAxis: {data: this.xData},
+      series: {data: this.yData}
     })
   }
 }

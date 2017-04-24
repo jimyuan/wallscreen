@@ -53,28 +53,55 @@ export default {
 
   mounted () {
     const regCount = echarts.init(document.getElementById('regCount'))
-    // 设置坐标区斑马纹效果
-    options.grid[0].backgroundColor.colorStops = common.gradient(this.xData.length, common.oddColor, common.evenColor)
     regCount.setOption(options)
+    regCount.setOption({
+      grid: [{
+        // 设置坐标区斑马纹效果
+        backgroundColor: {
+          colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
+        }
+      }],
+      legend: [{
+        x: '15%',
+        y: '55%',
+        itemGap: common.item10
+      }, {
+        x: '65%',
+        y: '55%',
+        itemGap: common.item10
+      }],
+      series: [{}, {
+        lineStyle: {
+          normal: {
+            color: '#f8b226'
+          }
+        },
+        itemStyle: {
+          normal: {
+            color: '#f8b226'
+          }
+        }
+      }, {
+        radius: ['20%', '30%'],
+        center: ['25%', '83%']
+      }, {
+        radius: [0, '21%'],
+        center: ['25%', '83%']
+      }, {
+        radius: ['20%', '30%'],
+        center: ['75%', '83%']
+      }, {
+        radius: [0, '21%'],
+        center: ['75%', '83%']
+      }]
+    })
 
     // 加载数据
     regCount.setOption({
       xAxis: {data: this.xData},
       series: [
         {data: this.yData1},
-        {
-          data: this.yData2,
-          lineStyle: {
-            normal: {
-              color: '#f8b226'
-            }
-          },
-          itemStyle: {
-            normal: {
-              color: '#f8b226'
-            }
-          }
-        },
+        {data: this.yData2},
         {data: this.pieData1},
         {data: this.pieData1},
         {data: this.pieData2},

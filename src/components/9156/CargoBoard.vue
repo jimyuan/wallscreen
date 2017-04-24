@@ -23,7 +23,17 @@ export default {
 
   mounted () {
     const cargoBoard = echarts.init(document.getElementById('cargoBoard'))
-    cargoBoard.setOption(Object.assign({}, options))
+    cargoBoard.setOption(options)
+    cargoBoard.setOption({
+      legend: [{
+        x: '50%',
+        y: '30%'
+      }],
+      series: [{
+        radius: '60%',
+        center: ['20%', '50%']
+      }]
+    })
 
     // 数据加载
     cargoBoard.setOption({

@@ -36,6 +36,16 @@ export default {
   mounted () {
     const hotTrade = echarts.init(document.getElementById('hotTrade'))
     hotTrade.setOption(options)
+    hotTrade.setOption({
+      legend: [{
+        x: '60%',
+        y: '30%'
+      }],
+      series: [{
+        radius: '70%',
+        center: ['30%', '50%']
+      }]
+    })
 
     // 加载数据
     hotTrade.setOption({

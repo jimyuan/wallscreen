@@ -23,16 +23,22 @@ export default {
   },
   mounted () {
     const increase = echarts.init(document.getElementById('increase'))
-    // 设置坐标区斑马纹效果
-    options.grid[0].backgroundColor.colorStops = common.gradient(this.xData.length, common.oddColor, common.evenColor)
     increase.setOption(options)
+    increase.setOption({
+      yAxis: [{
+        name: '单位: 万元'
+      }],
+      grid: [{
+        // 设置坐标区斑马纹效果
+        backgroundColor: {
+          colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
+        }
+      }]
+    })
 
     // 加载数据
     increase.setOption({
       xAxis: {data: this.xData},
-      yAxis: [
-        {name: '单位：万元'}
-      ],
       series: {data: this.yData}
     })
   }

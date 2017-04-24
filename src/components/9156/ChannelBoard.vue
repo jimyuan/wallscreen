@@ -25,7 +25,17 @@ export default {
 
   mounted () {
     const channelBoard = echarts.init(document.getElementById('channelBoard'))
-    channelBoard.setOption(Object.assign({}, options))
+    channelBoard.setOption(options)
+    channelBoard.setOption({
+      legend: [{
+        x: '50%',
+        y: '17%'
+      }],
+      series: [{
+        radius: '60%',
+        center: ['20%', '50%']
+      }]
+    })
     // 数据加载
     channelBoard.setOption({
       legend: {data: this.pieData.map(item => item.name)},

@@ -79,8 +79,6 @@ const series = [{
 }]
 
 
-export default function () {
-  return {
-    xAxis, yAxis, series
-  }
+export default {
+  xAxis, yAxis, series
 }
