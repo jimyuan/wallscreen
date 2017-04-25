@@ -20,6 +20,28 @@
   padding: 0;
 }
 
+.deal-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    color: #00b3e7;
+    font-weight: bold;
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 1px solid currentcolor;
+  }
+
+  td {
+    color: #fff;
+    padding: 0.5em;
+    font-size: 0.8em;
+
+    &:nth-child(odd) {
+      font-family: monospace;
+    }
+  }
+}
 
 /* Dash 样式定义 */
 .dash {
@@ -33,6 +55,10 @@
     color: $dash-title-color;
     text-align: center;
   }
+}
+
+.dash-bargain > .board {
+  padding: resp-size(10px) resp-size(20px);
 }
 
 .board {
@@ -73,4 +99,70 @@
   box-sizing: border-box;
   background: linear-gradient(to top right, rgb(10, 48, 86) 48%, #31b7d4 0, #31b7d4 53%, transparent 0);
   border-left: 1px solid #31b7d4;
+}
+
+.analysis-mod {
+  @include absolute(left 7% right 7%);
+  font-size: resp-size(20px);
+  color: $dash-title-color;
+  text-align: center;
+  background: linear-gradient(transparent 49%, $dash-title-color 0, $dash-title-color 52%, transparent 0);
+
+  &.line1 {
+    top: 7%;
+  }
+
+  &.line2 {
+    top: 43%;
+  }
+
+  &.line3 {
+    top: 73%;
+  }
+
+  &::before,
+  &::after {
+    @include size(0.4em);
+    @include absolute(top 50%);
+
+    content: '';
+    display: block;
+    background-color: $dash-title-color;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  > span {
+    display: inline-block;
+    background: $dash-board-bg;
+    padding: 0 1em;
+  }
+}
+
+/* 表格动画样式定义 */
+.list-item {
+  transition: all .5s;
+}
+
+.list-row-enter-active {
+  // background: #fff;
+
+  td {
+    color: transparent;
+  }
+}
+
+.list-row-enter {
+  // background: rgba(1,42,71,0.8);
+
+  td {
+    color: #fff;
+  }
+}
+
+.list-row-leave-active {
+  display: none;
 }

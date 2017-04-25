@@ -20,30 +20,15 @@
     </div>
     <div class="layout">
       <div class="dash-group left-group">
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
+        <biz-progress-board></biz-progress-board>
+        <distribute-rate-board></distribute-rate-board>
       </div>
       <div class="dash-group mid-group">
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
+        <finance-channel-board></finance-channel-board>
+        <risk-management-board></risk-management-board>
       </div>
       <div class="dash-group right-group">
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
+        <service-analysis-board></service-analysis-board>
       </div>
     </div>
     <time-stamp :value="timeStamp" class="stamp-pos"></time-stamp>
@@ -54,7 +39,11 @@
 import moment from 'moment'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
-
+import BizProgressBoard from 'COMPONENTS/ebaoli/BizProgressBoard'
+import DistributeRateBoard from 'COMPONENTS/ebaoli/DistributeRateBoard'
+import FinanceChannelBoard from 'COMPONENTS/ebaoli/FinanceChannelBoard'
+import RiskManagementBoard from 'COMPONENTS/ebaoli/RiskManagementBoard'
+import ServiceAnalysisBoard from 'COMPONENTS/ebaoli/ServiceAnalysisBoard'
 export default {
   data () {
     return {
@@ -69,6 +58,6 @@ export default {
       tabData: [3234, 220, 33, 99012, 1125532, 0]
     }
   },
-  components: {TimeStamp, CountZone}
+  components: {TimeStamp, CountZone, BizProgressBoard, DistributeRateBoard, FinanceChannelBoard, RiskManagementBoard, ServiceAnalysisBoard}
 }
 </script>

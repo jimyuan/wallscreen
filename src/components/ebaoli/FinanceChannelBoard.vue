@@ -1,15 +1,15 @@
 <template>
   <div class="dash">
-    <h1>渠道销售排行</h1>
+    <h1>筹资渠道</h1>
     <div class="board">
-      <div id="channelBoard" class="charts"></div>
+      <div id="financeChannel" class="charts"></div>
     </div>
   </div>
 </template>
 
 <script>
 import echarts from 'echarts'
-import options from './ChannelData'
+import options from './FinanceChannelData'
 export default {
   data () {
     return {
@@ -17,19 +17,18 @@ export default {
         {name: 'aaa', value: 123},
         {name: 'bbb', value: 123},
         {name: 'ccc', value: 123},
-        {name: 'ddd', value: 123},
         {name: 'eee', value: 123}
       ]
     }
   },
 
   mounted () {
-    const channelBoard = echarts.init(document.getElementById('channelBoard'))
-    channelBoard.setOption(options)
-    channelBoard.setOption({
+    const financeChannel = echarts.init(document.getElementById('financeChannel'))
+    financeChannel.setOption(options)
+    financeChannel.setOption({
       legend: [{
         x: '50%',
-        y: '17%'
+        y: `${45 - this.pieData.length * 5}%`
       }],
       series: [{
         radius: '60%',
@@ -37,7 +36,7 @@ export default {
       }]
     })
     // 数据加载
-    channelBoard.setOption({
+    financeChannel.setOption({
       legend: {data: this.pieData.map(item => item.name)},
       series: {data: this.pieData}
     })
