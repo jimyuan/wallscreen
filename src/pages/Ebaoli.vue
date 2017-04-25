@@ -20,7 +20,7 @@
     </div>
     <div class="layout">
       <div class="dash-group left-group">
-        <biz-progress-board></biz-progress-board>
+        <biz-progress-board v-if="progress" :data="progress"></biz-progress-board>
         <distribute-rate-board></distribute-rate-board>
       </div>
       <div class="dash-group mid-group">
@@ -37,6 +37,7 @@
 
 <script>
 import moment from 'moment'
+import cs from 'SERVICES/ChartService'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
 import BizProgressBoard from 'COMPONENTS/ebaoli/BizProgressBoard'
@@ -55,9 +56,49 @@ export default {
         todayCount: 6982
       },
       tabHead: ['信用融资', '配送融资', '商票业务', '质押融资', '寄售', '托盘'],
-      tabData: [3234, 220, 33, 99012, 1125532, 0]
+      tabData: [],
+      otherData: {},
+      progress: {}
     }
   },
+
+  methods: {
+    getTodayData () {
+      cs.liveEbaoli().then(data => {
+        const record = data.financeRecords
+        this.amountOpt.todayCount = data.allFinanceAmount
+        this.tabData = [
+          record.creditFinancing,
+          record.dispatchingFinancing,
+          record.ticketFinancing,
+          record.pledgeFinancing,
+          record.saleFinancing,
+          record.trayFinancing
+        ]
+      })
+    },
+
+    getOtherData () {
+      cs.fetchSteel().then(data => {
+        this.otherData = data
+      })
+    },
+
+    getProgressData () {
+      cs.scrollProgress().then(data => {
+        this.progress = data
+      })
+    }
+  },
+
+  mounted () {
+    // this.getTodayData()
+    setInterval(() => {
+      // this.getTodayData()
+      this.getProgressData()
+    }, 2000)
+  },
+
   components: {TimeStamp, CountZone, BizProgressBoard, DistributeRateBoard, FinanceChannelBoard, RiskManagementBoard, ServiceAnalysisBoard}
 }
 </script>

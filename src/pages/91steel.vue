@@ -97,7 +97,7 @@ export default {
     },
 
     getOtherData () {
-      cs.fetchSteel().then(data => {
+      cs.fetchEbaoli().then(data => {
         this.otherData = data
       })
     }

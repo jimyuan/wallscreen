@@ -22,6 +22,18 @@ class ChartService {
   liveSteel () {
     return ajax({ url: api['91steel'].today })
   }
+
+  fetchEbaoli () {
+    return ajax({ url: api.ebaoli.other })
+  }
+
+  scrollProgress () {
+    return ajax({ url: api.ebaoli.progress })
+  }
+
+  liveEbaoli () {
+    return ajax({ url: api.ebaoli.today })
+  }
 }
 
 /**

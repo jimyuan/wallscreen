@@ -9,8 +9,8 @@
           </tr>
         </thead>
         <transition-group tag="tbody" name="list-row" mode="out-in">
-          <tr v-for="biz of bizes" :key="biz" class="list-item">
-             <td v-for="item of biz" v-text="item"></td>
+          <tr v-for="record of progressRecords" :key="record" class="list-item">
+             <td v-for="item of record" v-text="item"></td>
            </tr>
         </transition-group>
       </table>
@@ -20,30 +20,30 @@
 
 <script>
 export default {
+  props: ['data'],
+
   data () {
     return {
       tHead: ['公司', '业务类型', '状态'],
-      bizes: []
+      progressRecords: []
+    }
+  },
+
+  watch: {
+    data () {
+      this.getProgress()
     }
   },
 
   methods: {
-    dataFactory () {
-      const seed = Math.random()
-      let company = ['上海', '北京', '天津', '重庆'][4 * seed | 0]
-      let status = ['提交', '审核通过', '审核中'][3 * seed | 0]
-      return [`${company}公司`, `${company}业务`, status]
+    getProgress () {
+      this.progressRecords.unshift([
+        this.data.companyName,
+        this.data.businessTypeName,
+        this.data.statusName
+      ])
+      if (this.progressRecords.length > 6) this.progressRecords.pop()
     }
-  },
-
-  mounted () {
-    for (let i = 0; i < 6; i++) {
-      this.bizes.push(this.dataFactory())
-    }
-    setInterval(() => {
-      this.bizes.pop()
-      this.bizes.unshift(this.dataFactory())
-    }, 5000)
   }
 }
 </script>
