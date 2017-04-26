@@ -20,15 +20,20 @@
     </div>
     <div class="layout">
       <div class="dash-group left-group">
+        <!-- 业务办理进度 -->
         <biz-progress-board v-if="progress" :data="progress"></biz-progress-board>
-        <distribute-rate-board></distribute-rate-board>
+        <!-- 大智运配送比 -->
+        <distribute-rate-board v-if="otherData.shippingScaleAnalysis" :data="otherData"></distribute-rate-board>
       </div>
       <div class="dash-group mid-group">
-        <finance-channel-board></finance-channel-board>
-        <risk-management-board></risk-management-board>
+        <!-- 筹资渠道 -->
+        <finance-channel-board v-if="otherData.raiseChannelAnalysis" :data="otherData"></finance-channel-board>
+        <!-- 风控 -->
+        <risk-management-board v-if="otherData.riskmanageAnalysis" :data="otherData"></risk-management-board>
       </div>
       <div class="dash-group right-group">
-        <service-analysis-board></service-analysis-board>
+        <!-- 服务用户分析 -->
+        <service-analysis-board v-if="otherData.allUsersCount" :data="otherData"></service-analysis-board>
       </div>
     </div>
     <time-stamp :value="timeStamp" class="stamp-pos"></time-stamp>
@@ -63,6 +68,7 @@ export default {
   },
 
   methods: {
+    // 今日数据获取
     getTodayData () {
       cs.liveEbaoli().then(data => {
         const record = data.financeRecords
@@ -77,13 +83,13 @@ export default {
         ]
       })
     },
-
+    // 固定数据获取
     getOtherData () {
-      cs.fetchSteel().then(data => {
+      cs.fetchEbaoli().then(data => {
         this.otherData = data
       })
     },
-
+    // 业务进度数据获取
     getProgressData () {
       cs.scrollProgress().then(data => {
         this.progress = data
@@ -92,11 +98,14 @@ export default {
   },
 
   mounted () {
-    // this.getTodayData()
+    this.getTodayData()
+    this.getProgressData()
+    this.getOtherData()
+    // 轮询
     setInterval(() => {
-      // this.getTodayData()
+      this.getTodayData()
       this.getProgressData()
-    }, 2000)
+    }, 10000)
   },
 
   components: {TimeStamp, CountZone, BizProgressBoard, DistributeRateBoard, FinanceChannelBoard, RiskManagementBoard, ServiceAnalysisBoard}

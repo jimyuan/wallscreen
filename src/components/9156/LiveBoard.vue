@@ -9,8 +9,11 @@
           </tr>
         </thead>
         <transition-group tag="tbody" name="list-row" mode="out-in">
-          <tr v-for="deal of deals" :key="deal" class="list-item">
-             <td v-for="item of deal" v-text="item"></td>
+          <tr v-for="deal of dealRecords" :key="deal" class="list-item">
+             <td v-text="deal.orderTime"></td>
+             <td v-text="deal.route"></td>
+             <td v-text="deal.weight"></td>
+             <td v-text="deal.status"></td>
            </tr>
         </transition-group>
       </table>
@@ -20,37 +23,37 @@
 
 <script>
 export default {
+  props: ['data'],
+
   data () {
     return {
       tHead: ['时间', '路线', '重量(吨)', '状态'],
-      deals: []
+      dealRecords: [],
+      index: 0
+    }
+  },
+
+  watch: {
+    data () {
+      this.getDeal()
+      this.index = 0
     }
   },
 
   methods: {
-    dataFactory () {
-      const seed = Math.random()
-      const from = ['上海', '银川', '武汉', '成都', '重庆']
-      const dest = ['柳州', '青海', '贵阳', '洛阳', '兰州']
-      let time = `${this.zerofill(23 * seed | 0)}:${this.zerofill(59 * seed | 0)}`
-      let path = `${from[5 * seed | 0]} - ${dest[5 * seed | 0]}`
-      let weight = 1000 * seed | 0
-      let status = ['已派运', '待承运', '待调度'][3 * seed | 0]
-      return [time, path, weight, status]
-    },
-    zerofill (val) {
-      return val >= 10 ? val : `0${val}`
+    getDeal () {
+      if (this.index === 0) {
+        this.dealRecords.push(this.data[this.index])
+        this.index ++
+      }
+      setInterval(() => {
+        if (this.data[this.index]) {
+          this.dealRecords.unshift(this.data[this.index])
+          if (this.dealRecords.length > 5) this.dealRecords.pop()
+          this.index ++
+        }
+      }, 2000)
     }
-  },
-
-  mounted () {
-    for (let i = 0; i < 5; i++) {
-      this.deals.push(this.dataFactory())
-    }
-    setInterval(() => {
-      this.deals.pop()
-      this.deals.unshift(this.dataFactory())
-    }, 5000)
   }
 }
 </script>

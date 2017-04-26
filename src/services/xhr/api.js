@@ -7,6 +7,9 @@ const api = {
     other: '/finance/other',
     today: '/finance/getToday',
     progress: '/finance/progress'
+  },
+  '9156': {
+    all: 'dzy/getDZYScreenData'
   }
 }
 

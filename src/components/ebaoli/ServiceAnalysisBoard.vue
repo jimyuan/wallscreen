@@ -2,7 +2,7 @@
   <div class="dash">
     <h1>服务用户分析</h1>
     <div class="board">
-      <h2 class="trans-count">服务用户总数：291 家</h2>
+      <h2 class="trans-count">服务用户总数：{{ allUserCount | dataFormat }} 家</h2>
       <h3 class="analysis-mod line1"><span>新增服务用户数</span></h3>
       <h3 class="analysis-mod line2"><span>用户授信额度</span></h3>
       <h3 class="analysis-mod line3"><span>用户合作年限</span></h3>
@@ -16,21 +16,21 @@ import echarts from 'echarts'
 import options from './serviceAnalysisData'
 import common from 'CHARTS/commonData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
-      yData: [123, 450, 1100, 723, 910, 812],
-      quotePieData: [
-        {name: 'aaa', value: 123},
-        {name: 'bbb', value: 123},
-        {name: 'ccc', value: 123}
-      ],
-      expirePieData: [
-        {name: 'vvvv', value: 123},
-        {name: 'eeee', value: 123},
-        {name: 'oooo', value: 123},
-        {name: 'nnnn', value: 123}
-      ]
+      allUserCount: this.data.allUsersCount,
+      xData: this.data.registeUserAnalysis.map(item => `${item.month}月`),
+      yData: this.data.registeUserAnalysis.map(item => item.userCount),
+      quotePieData: this.data.userCreditAnalysis.map(item => ({
+        name: item.userCreditAmoutName,
+        value: item.userCount
+      })),
+      expirePieData: this.data.userYearsAnalysis.map(item => ({
+        name: item.userYearsName,
+        value: item.userCount
+      }))
     }
   },
 

@@ -23,6 +23,11 @@ class ChartService {
     return ajax({ url: api['91steel'].today })
   }
 
+  /**
+   * Ebaoli 图表数据
+   *
+   */
+
   fetchEbaoli () {
     return ajax({ url: api.ebaoli.other })
   }
@@ -33,6 +38,14 @@ class ChartService {
 
   liveEbaoli () {
     return ajax({ url: api.ebaoli.today })
+  }
+
+  /**
+   * 9156 图表数据
+   *
+   */
+  fetch9156 () {
+    return ajax({ url: api['9156'].all })
   }
 }
 

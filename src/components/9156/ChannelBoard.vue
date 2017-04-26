@@ -11,15 +11,14 @@
 import echarts from 'echarts'
 import options from './ChannelData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      pieData: [
-        {name: 'aaa', value: 123},
-        {name: 'bbb', value: 123},
-        {name: 'ccc', value: 123},
-        {name: 'ddd', value: 123},
-        {name: 'eee', value: 123}
-      ]
+      pieData: this.data.map(item => ({
+        name: item.channelName,
+        value: item.sum
+      }))
     }
   },
 
@@ -29,7 +28,7 @@ export default {
     channelBoard.setOption({
       legend: [{
         x: '50%',
-        y: '17%'
+        y: `${45 - this.pieData.length * 5}%`
       }],
       series: [{
         radius: '60%',

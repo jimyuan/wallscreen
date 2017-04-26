@@ -9,8 +9,10 @@
           </tr>
         </thead>
         <transition-group tag="tbody" name="list-row" mode="out-in">
-          <tr v-for="record of progressRecords" :key="record" class="list-item">
-             <td v-for="item of record" v-text="item"></td>
+          <tr v-for="record of progressRecords" :key="record.id" class="list-item">
+             <td v-text="record.companyName"></td>
+             <td v-text="record.businessTypeName"></td>
+             <td v-text="record.statusName"></td>
            </tr>
         </transition-group>
       </table>
@@ -37,11 +39,7 @@ export default {
 
   methods: {
     getProgress () {
-      this.progressRecords.unshift([
-        this.data.companyName,
-        this.data.businessTypeName,
-        this.data.statusName
-      ])
+      this.progressRecords.unshift(this.data)
       if (this.progressRecords.length > 6) this.progressRecords.pop()
     }
   }

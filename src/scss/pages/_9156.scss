@@ -57,6 +57,12 @@
 
       th {
         background: #112533;
+        text-align: left;
+        color: #00c7ff;
+
+        &:first-child {
+          width: 40%;
+        }
       }
 
       td {

@@ -11,13 +11,14 @@
 import echarts from 'echarts'
 import options from './CargoData.js'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      pieData: [
-        {name: 'aaa', value: 123},
-        {name: 'bbb', value: 123},
-        {name: 'ccc', value: 123}
-      ]
+      pieData: this.data.map(item => ({
+        name: item.goodsTypeName,
+        value: item.sum
+      }))
     }
   },
 
@@ -27,7 +28,7 @@ export default {
     cargoBoard.setOption({
       legend: [{
         x: '50%',
-        y: '30%'
+        y: `${45 - this.pieData.length * 5}%`
       }],
       series: [{
         radius: '60%',

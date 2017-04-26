@@ -3,8 +3,8 @@
     <h1>全网成交情况</h1>
     <div class="board">
       <h2 class="trans-count">
-        <span>本月累计运输量：{{ monthCount | dataFormat }} 吨</span>
-        <span>累计运输量：{{ totalCount | dataFormat }} 吨</span>
+        <span>{{ monthCount.monthName }}: {{ monthCount.sum | dataFormat }} 吨</span>
+        <span>{{ monthCount.monthName }}: {{ monthCount.totalCount | dataFormat }} 吨</span>
       </h2>
       <div id="dealBoard" class="charts"></div>
     </div>
@@ -16,12 +16,14 @@ import echarts from 'echarts'
 import options from './DealData'
 import common from 'CHARTS/commonData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      monthCount: 1235,
-      totalCount: 54321,
-      xData: ['11月', '12月', '1月', '2月', '3月', '本月'],
-      yData: [5.0, 14.9, 7.0, 23.2, 25.6, 16.7]
+      monthCount: this.data[0],
+      totalCount: this.data[1],
+      xData: this.data.map(item => item.monthName),
+      yData: this.data.map(item => item.sum)
     }
   },
 
@@ -31,7 +33,7 @@ export default {
     dealBoard.setOption({
       grid: [{
         backgroundColor: {
-          colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
+          colorStops: common.gradient(this.xData.length - 2, common.oddColor, common.evenColor)
         }
       }],
       series: [{
@@ -47,8 +49,8 @@ export default {
 
     // 数据加载
     dealBoard.setOption({
-      xAxis: {data: this.xData},
-      series: {data: this.yData}
+      xAxis: {data: this.xData.slice(2)},
+      series: {data: this.yData.slice(2)}
     })
   }
 }

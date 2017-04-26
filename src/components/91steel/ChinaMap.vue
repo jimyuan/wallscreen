@@ -26,7 +26,7 @@ export default {
     },
 
     cityIndex () {
-      return this.cityArray.indexOf(this.tradeOrder.cityName)
+      return this.cityArray.indexOf(this.tradeOrder.ctiyName)
     },
 
     lastCityIndex () {

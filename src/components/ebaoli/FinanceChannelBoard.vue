@@ -11,14 +11,14 @@
 import echarts from 'echarts'
 import options from './FinanceChannelData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      pieData: [
-        {name: 'aaa', value: 123},
-        {name: 'bbb', value: 123},
-        {name: 'ccc', value: 123},
-        {name: 'eee', value: 123}
-      ]
+      pieData: this.data.raiseChannelAnalysis.map(item => ({
+        name: item.raiseChannelName,
+        value: item.raiseChannelMoney
+      }))
     }
   },
 

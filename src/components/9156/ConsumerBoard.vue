@@ -12,25 +12,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Lorem.</td>
-              <td>Voluptas?</td>
-            </tr>
-            <tr>
-              <td>Lorem.</td>
-              <td>Nam?</td>
-            </tr>
-            <tr>
-              <td>Lorem.</td>
-              <td>Sunt.</td>
-            </tr>
-            <tr>
-              <td>Lorem.</td>
-              <td>Excepturi?</td>
-            </tr>
-            <tr>
-              <td>Lorem.</td>
-              <td>Eius.</td>
+            <tr v-for="item of area">
+              <td v-text="item.orderfrom"></td>
+              <td v-text="item.sum"></td>
             </tr>
           </tbody>
         </table>
@@ -43,16 +27,19 @@
 import echarts from 'echarts'
 import options from './ConsumerData'
 export default {
+  props: ['data'],
+
   data () {
     return {
-      pieData1: [
-        {name: 'aaaa', value: 10},
-        {name: 'bbbb', value: 30}
-      ],
-      pieData2: [
-        {name: 'ccdc', value: 10},
-        {name: 'dddd', value: 20}
-      ]
+      userPieData: this.data.userTypeAnalysis.map(item => ({
+        name: item.userTypeName,
+        value: item.orderCount
+      })),
+      orderPieData: this.data.orderByAnalysis.map(item => ({
+        name: item.orderByName,
+        value: item.orderCount
+      })),
+      area: this.data.areaAnalysis
     }
   },
   mounted () {
@@ -84,14 +71,14 @@ export default {
     // 数据加载
     consumerBoard.setOption({
       legend: [
-        {data: this.pieData1.map(item => item.name)},
-        {data: this.pieData2.map(item => item.name)}
+        {data: this.orderPieData.map(item => item.name)},
+        {data: this.userPieData.map(item => item.name)}
       ],
       series: [
-        {data: this.pieData1},
-        {data: this.pieData1},
-        {data: this.pieData2},
-        {data: this.pieData2}
+        {data: this.orderPieData},
+        {data: this.orderPieData},
+        {data: this.userPieData},
+        {data: this.userPieData}
       ]
     })
   }
