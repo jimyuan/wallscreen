@@ -13,6 +13,7 @@
 
 <script>
 import echarts from 'echarts'
+import dataFormat from 'FILTERS/dataFormat'
 import options from './serviceAnalysisData'
 import common from 'CHARTS/commonData'
 export default {
@@ -21,8 +22,8 @@ export default {
   data () {
     return {
       allUserCount: this.data.allUsersCount,
-      xData: this.data.registeUserAnalysis.map(item => `${item.month}月`),
-      yData: this.data.registeUserAnalysis.map(item => item.userCount),
+      xData: this.data.registeUserAnalysis.map(item => `${item.month}月`).reverse(),
+      yData: this.data.registeUserAnalysis.map(item => item.userCount).reverse(),
       quotePieData: this.data.userCreditAnalysis.map(item => ({
         name: item.userCreditAmoutName,
         value: item.userCount
@@ -30,6 +31,16 @@ export default {
       expirePieData: this.data.userYearsAnalysis.map(item => ({
         name: item.userYearsName,
         value: item.userCount
+      }))
+    }
+  },
+
+  methods: {
+    pieDataFormat (pieData) {
+      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
+      return pieData.map(item => ({
+        value: item.value,
+        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%, ${dataFormat(item.value)}家)`
       }))
     }
   },
@@ -66,16 +77,16 @@ export default {
     // 数据加载
     serviceAnalysis.setOption({
       legend: [
-        {data: this.quotePieData.map(item => item.name)},
-        {data: this.expirePieData.map(item => item.name)}
+        {data: this.pieDataFormat(this.quotePieData).map(item => item.name)},
+        {data: this.pieDataFormat(this.expirePieData).map(item => item.name)}
       ],
       xAxis: [
         {data: this.xData}
       ],
       series: [
         {data: this.yData},
-        {data: this.quotePieData},
-        {data: this.expirePieData}
+        {data: this.pieDataFormat(this.quotePieData)},
+        {data: this.pieDataFormat(this.expirePieData)}
       ]
     })
   }

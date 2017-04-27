@@ -5,7 +5,6 @@ const geo9156 = geoData['9156']
 const label = {
   normal: {
     show: true,
-    position: [10, 5],
     textStyle: {
       color: '#fff'
     }
@@ -44,6 +43,7 @@ export default {
     x: '18%',
     y: '13%',
     zoom: 0.9,
+    roam: true,
     z: 3,
     itemStyle: {
       normal: {

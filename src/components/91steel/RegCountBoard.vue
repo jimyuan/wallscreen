@@ -33,11 +33,11 @@ export default {
       // 累计注册企业
       totalCompany: this.data.allCompanyCount,
       // 折线图 category
-      xData: this.data.companysRecords.map(item => item.month),
+      xData: this.data.companysRecords.map(item => `${item.month}月`).reverse(),
       // 折线图注册用户 data
-      yData1: this.data.companysRecords.map(item => item.registerUsersCount),
+      yData1: this.data.companysRecords.map(item => item.registerUsersCount).reverse(),
       // 折线图注册企业 data
-      yData2: this.data.companysRecords.map(item => item.registerCompanyCount),
+      yData2: this.data.companysRecords.map(item => item.registerCompanyCount).reverse(),
       // 客户端饼图1 data
       pieData1: this.data.sourceTypeTotal.map(item => ({
         name: item.registerSourceTypeName,

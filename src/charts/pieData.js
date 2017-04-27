@@ -6,7 +6,11 @@ export default {
   color: common.colorArr,
   legend: [{
     orient: 'vertical',
-    textStyle,
+    itemWidth: 14,
+    textStyle: {
+      ...textStyle,
+      fontFamily: 'monospace'
+    },
     tooltip: {
       show: false
     },

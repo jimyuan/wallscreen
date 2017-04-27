@@ -9,6 +9,7 @@
 
 <script>
 import echarts from 'echarts'
+import dataFormat from 'FILTERS/dataFormat'
 import options from './FinanceChannelData'
 export default {
   props: ['data'],
@@ -18,6 +19,17 @@ export default {
       pieData: this.data.raiseChannelAnalysis.map(item => ({
         name: item.raiseChannelName,
         value: item.raiseChannelMoney
+      }))
+    }
+  },
+
+  computed: {
+    pieDataFormat () {
+      const pieData = this.pieData
+      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
+      return pieData.map(item => ({
+        value: item.value,
+        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%, ${dataFormat(item.value)}万元)`
       }))
     }
   },
@@ -37,8 +49,8 @@ export default {
     })
     // 数据加载
     financeChannel.setOption({
-      legend: {data: this.pieData.map(item => item.name)},
-      series: {data: this.pieData}
+      legend: {data: this.pieDataFormat.map(item => item.name)},
+      series: {data: this.pieDataFormat}
     })
   }
 }

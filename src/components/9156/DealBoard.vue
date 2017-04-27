@@ -4,7 +4,7 @@
     <div class="board">
       <h2 class="trans-count">
         <span>{{ monthCount.monthName }}: {{ monthCount.sum | dataFormat }} 吨</span>
-        <span>{{ monthCount.monthName }}: {{ monthCount.totalCount | dataFormat }} 吨</span>
+        <span>{{ totalCount.monthName }}: {{ totalCount.sum | dataFormat }} 吨</span>
       </h2>
       <div id="dealBoard" class="charts"></div>
     </div>
@@ -49,8 +49,8 @@ export default {
 
     // 数据加载
     dealBoard.setOption({
-      xAxis: {data: this.xData.slice(2)},
-      series: {data: this.yData.slice(2)}
+      xAxis: {data: this.xData.slice(2).reverse()},
+      series: {data: this.yData.slice(2).reverse()}
     })
   }
 }

@@ -31,9 +31,9 @@ export default {
       // 总结算量
       totalDone: this.data.allTradeAmount,
       // 总挂牌量 category
-      xData: this.data.quotedTradeRecords.map(item => item.month),
+      xData: this.data.quotedTradeRecords.map(item => `${item.month}月`).reverse(),
       // 总挂牌量 data
-      yData: this.data.quotedTradeRecords.map(item => item.quotedAmount),
+      yData: this.data.quotedTradeRecords.map(item => item.quotedAmount).reverse(),
       // 成交量 & 结算量
       barData: [this.data.allTradeAmount, this.data.allStatementsAmount]
     }

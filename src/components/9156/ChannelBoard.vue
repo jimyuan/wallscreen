@@ -9,6 +9,7 @@
 
 <script>
 import echarts from 'echarts'
+import dataFormat from 'FILTERS/dataFormat'
 import options from './ChannelData'
 export default {
   props: ['data'],
@@ -18,6 +19,17 @@ export default {
       pieData: this.data.map(item => ({
         name: item.channelName,
         value: item.sum
+      }))
+    }
+  },
+
+  computed: {
+    pieDataFormat () {
+      const pieData = this.pieData
+      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
+      return pieData.map(item => ({
+        value: item.value,
+        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%, ${dataFormat(item.value)}吨)`
       }))
     }
   },
@@ -37,8 +49,8 @@ export default {
     })
     // 数据加载
     channelBoard.setOption({
-      legend: {data: this.pieData.map(item => item.name)},
-      series: {data: this.pieData}
+      legend: {data: this.pieDataFormat.map(item => item.name)},
+      series: {data: this.pieDataFormat}
     })
   }
 }

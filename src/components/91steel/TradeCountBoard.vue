@@ -38,7 +38,7 @@ export default {
     tradeCount.setOption(options)
     tradeCount.setOption({
       legend: [{
-        x: '60%',
+        x: '50%',
         y: `${45 - this.pieData.length * 5}%`
       }],
       series: [{

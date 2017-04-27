@@ -8,7 +8,7 @@
             <th v-for="h of tHead" v-text="h"></th>
           </tr>
         </thead>
-        <transition-group tag="tbody" name="list-row" mode="out-in">
+        <transition-group tag="tbody" name="list-row" mode="out-in" v-if="this.progressRecords">
           <tr v-for="record of progressRecords" :key="record.id" class="list-item">
              <td v-text="record.companyName"></td>
              <td v-text="record.businessTypeName"></td>

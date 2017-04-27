@@ -17,8 +17,8 @@ export default {
   data () {
     return {
       // 折线图 category
-      xData: this.data.quotedTradeRecords.map(item => item.month),
-      yData: this.data.quotedTradeRecords.map(item => item.tradeAmount)
+      xData: this.data.quotedTradeRecords.map(item => `${item.month}月`).reverse(),
+      yData: this.data.quotedTradeRecords.map(item => item.tradeAmount).reverse()
     }
   },
   mounted () {

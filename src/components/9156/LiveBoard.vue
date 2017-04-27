@@ -33,26 +33,32 @@ export default {
     }
   },
 
-  watch: {
-    data () {
-      this.getDeal()
-      this.index = 0
+  computed: {
+    newData () {
+      return this.data
     }
+  },
+
+  watch: {
+    // data () {
+    //   this.getDeal()
+    //   this.index = 0
+    // }
   },
 
   methods: {
     getDeal () {
-      if (this.index === 0) {
-        this.dealRecords.push(this.data[this.index])
+      if (this.index <= 5) {
+        this.dealRecords.push(this.newData[this.index])
         this.index ++
       }
       setInterval(() => {
-        if (this.data[this.index]) {
-          this.dealRecords.unshift(this.data[this.index])
+        if (this.newData[this.index]) {
+          this.dealRecords.unshift(this.newData[this.index])
           if (this.dealRecords.length > 5) this.dealRecords.pop()
           this.index ++
         }
-      }, 2000)
+      }, 1500)
     }
   }
 }

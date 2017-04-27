@@ -50,7 +50,10 @@ export default {
     getData () {
       cs.fetch9156().then(data => {
         this.allData = data
-        this.deal = data.latestOrder
+        this.deal = data.latestOrder.map(item => {
+          item.orderCode = Math.random()
+          return item
+        })
         Object.assign(this.count, {
           todayCount: data.sumByToday,
           totalCount: data.sumByall

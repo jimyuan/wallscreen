@@ -28,7 +28,7 @@ export default {
       const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
       return pieData.map(item => ({
         value: item.value,
-        name: `${item.name}   (${(item.value * 100 / sum).toFixed()}%)`
+        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%)`
       }))
     }
   },
