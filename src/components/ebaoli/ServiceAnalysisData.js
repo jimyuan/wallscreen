@@ -25,8 +25,6 @@ const yAxis = lineData.yAxis
 
 const seriesLine = lineData.series
 
-const legend = pieData.legend.concat(pieData.legend)
-
 const seriesPie = pieData.series.concat(pieData.series)
 
 export default {
@@ -34,6 +32,5 @@ export default {
   xAxis,
   yAxis,
   grid,
-  legend,
   series: seriesLine.concat(seriesPie)
 }

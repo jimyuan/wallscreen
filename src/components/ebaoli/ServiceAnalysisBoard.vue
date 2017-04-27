@@ -35,16 +35,6 @@ export default {
     }
   },
 
-  methods: {
-    pieDataFormat (pieData) {
-      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
-      return pieData.map(item => ({
-        value: item.value,
-        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%, ${dataFormat(item.value)}家)`
-      }))
-    }
-  },
-
   mounted () {
     const serviceAnalysis = echarts.init(document.getElementById('serviceAnalysis'))
     serviceAnalysis.setOption(options)
@@ -58,35 +48,36 @@ export default {
           colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
         }
       }],
-      legend: [{
-        x: '50%',
-        y: '53%'
-      }, {
-        x: '50%',
-        y: '82%'
-      }],
       series: [{}, {
         radius: '26%',
-        center: ['20%', '58%']
+        center: ['50%', '58%'],
+        label: {
+          normal: {
+            formatter ({name, value, percent}) {
+              return `${name} (${percent}%, ${dataFormat(value)}家)`
+            }
+          }
+        }
       }, {
         radius: '26%',
-        center: ['20%', '88%']
+        center: ['50%', '88%'],
+        label: {
+          normal: {
+            formatter ({name, value, percent}) {
+              return `${name}(${percent}%, ${dataFormat(value)}家)`
+            }
+          }
+        }
       }]
     })
 
     // 数据加载
     serviceAnalysis.setOption({
-      legend: [
-        {data: this.pieDataFormat(this.quotePieData).map(item => item.name)},
-        {data: this.pieDataFormat(this.expirePieData).map(item => item.name)}
-      ],
-      xAxis: [
-        {data: this.xData}
-      ],
+      xAxis: {data: this.xData},
       series: [
         {data: this.yData},
-        {data: this.pieDataFormat(this.quotePieData)},
-        {data: this.pieDataFormat(this.expirePieData)}
+        {data: this.quotePieData},
+        {data: this.expirePieData}
       ]
     })
   }

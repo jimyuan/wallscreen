@@ -22,35 +22,18 @@ export default {
     }
   },
 
-  computed: {
-    pieDataFormat () {
-      const pieData = this.pieData
-      const sum = pieData.map(item => item.value).reduce((a, b) => a + b)
-      return pieData.map(item => ({
-        value: item.value,
-        name: `${item.name} (${(item.value * 100 / sum).toFixed()}%)`
-      }))
-    }
-  },
-
   mounted () {
     const hotTrade = echarts.init(document.getElementById('hotTrade'))
     hotTrade.setOption(options)
     hotTrade.setOption({
-      legend: [{
-        x: '60%',
-        y: `${45 - this.pieData.length * 5}%`
-      }],
-      series: [{
-        radius: '70%',
-        center: ['30%', '50%']
-      }]
-    })
-
-    // 加载数据
-    hotTrade.setOption({
-      series: {data: this.pieDataFormat},
-      legend: {data: this.pieDataFormat.map(item => item.name)}
+      series: {
+        label: {
+          normal: {
+            formatter: '{b} ({d}%)'
+          }
+        },
+        data: this.pieData
+      }
     })
   }
 }
