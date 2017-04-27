@@ -40,10 +40,10 @@ export default {
   backgroundColor: 'transparent',
   geo: {
     map: 'china',
-    x: '18%',
+    x: '16%',
     y: '13%',
-    zoom: 0.9,
-    roam: true,
+    zoom: 1.1,
+    roam: false,
     z: 3,
     itemStyle: {
       normal: {

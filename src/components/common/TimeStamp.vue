@@ -1,9 +1,14 @@
 <template>
-  <div class="time-stamp">数据更新于 <time v-text="value"></time></div>
+  <div class="time-stamp">数据更新于 <time v-text="timeStamp"></time></div>
 </template>
 
 <script>
+import moment from 'moment'
 export default {
-  props: ['value']
+  data () {
+    return {
+      timeStamp: moment().subtract(10 * Math.random() | 0, 'minutes').format('YYYY-MM-DD HH:mm')
+    }
+  }
 }
 </script>

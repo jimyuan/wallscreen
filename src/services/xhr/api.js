@@ -9,7 +9,8 @@ const api = {
     progress: '/finance/progress'
   },
   '9156': {
-    all: 'dzy/getDZYScreenData'
+    other: 'dzy/getDZYScreenRightData',
+    today: 'dzy/getDZYScreenLeftData'
   }
 }
 

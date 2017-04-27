@@ -23,7 +23,7 @@
       </div>
       <!-- 地图 charts -->
       <china-map :data="liveTrade"></china-map>
-      <time-stamp :value="timeStamp" class="stamp-pos"></time-stamp>
+      <time-stamp class="stamp-pos"></time-stamp>
     </div>
     <div class="dash-group-right" v-if="otherData.tradeAnalysis">
       <!-- 近半年交易增长趋势 -->
@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 import cs from 'SERVICES/ChartService'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
@@ -61,7 +60,6 @@ import ChinaMap from 'COMPONENTS/91steel/ChinaMap'
 export default {
   data () {
     return {
-      timeStamp: moment().subtract(10 * Math.random() | 0, 'minutes').format('YYYY-MM-DD HH:mm'),
       tradeOpt: {
         title: '今日交易量',
         subTitle: '累计交易量：',

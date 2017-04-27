@@ -15,7 +15,7 @@ export default {
       normal: {
         show: true,
         textStyle: {
-          fontWeight: 'bold',
+          fontWeight: 'bolder',
           fontSize: common.item16
         }
       }

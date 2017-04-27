@@ -45,7 +45,11 @@ class ChartService {
    *
    */
   fetch9156 () {
-    return ajax({ url: api['9156'].all })
+    return ajax({ url: api['9156'].other })
+  }
+
+  getOrder () {
+    return ajax({ url: api['9156'].today })
   }
 }
 

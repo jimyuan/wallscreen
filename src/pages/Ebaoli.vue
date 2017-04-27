@@ -36,12 +36,11 @@
         <service-analysis-board v-if="otherData.allUsersCount" :data="otherData"></service-analysis-board>
       </div>
     </div>
-    <time-stamp :value="timeStamp" class="stamp-pos"></time-stamp>
+    <time-stamp class="stamp-pos"></time-stamp>
   </section>
 </template>
 
 <script>
-import moment from 'moment'
 import cs from 'SERVICES/ChartService'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
@@ -53,7 +52,6 @@ import ServiceAnalysisBoard from 'COMPONENTS/ebaoli/ServiceAnalysisBoard'
 export default {
   data () {
     return {
-      timeStamp: moment().subtract(10 * Math.random() | 0, 'minutes').format('YYYY-MM-DD HH:mm'),
       amountOpt: {
         title: '累计金融服务金额',
         subTitle: '',

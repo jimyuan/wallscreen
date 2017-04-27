@@ -20,8 +20,8 @@ function warnHandler (res) {
  */
 apiEnv = {
   'local': {
-    webAPI: 'http://localhost:8084'
-    // webAPI: 'http://10.66.1.226/largescreen-mobile'
+    // webAPI: 'http://localhost:8084'
+    webAPI: 'http://10.66.1.226/largescreen-mobile'
   },
   'dev': {
     webAPI: 'http://10.66.1.226/largescreen-mobile'

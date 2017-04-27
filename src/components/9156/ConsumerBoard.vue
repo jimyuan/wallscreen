@@ -14,7 +14,7 @@
           <tbody>
             <tr v-for="item of area">
               <td v-text="item.orderfrom"></td>
-              <td v-text="item.sum"></td>
+              <td>{{ item.sum | dataFormat }}</td>
             </tr>
           </tbody>
         </table>
