@@ -65,9 +65,6 @@ export default {
   mounted () {
     this.getOtherData()
     this.getLiveData()
-    // setInterval(() => {
-    //   this.getData()
-    // }, 20000)
   },
 
   components: {

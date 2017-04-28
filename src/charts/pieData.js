@@ -8,7 +8,7 @@ export default {
   series: [{
     hoverAnimation: false,
     type: 'pie',
-    startAngle: 0,
+    startAngle: 45,
     radius: '60%',
     silent: true,
     label: {

@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: ['data'],
 
@@ -34,32 +35,41 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      rollTime: state => state.rollTime
+    }),
+
     newData () {
       return this.data
+    },
+
+    deal () {
+      return this.newData[this.index]
     }
   },
 
   watch: {
-    // data () {
-    //   this.getDeal()
-    //   this.index = 0
-    // }
+    newData () {
+      this.index = 0
+      this.getDeal()
+    }
   },
 
   methods: {
     getDeal () {
-      if (this.index <= 5) {
-        this.dealRecords.push(this.newData[this.index])
+      if (this.deal) {
+        this.$store.commit('updateOrder', this.deal)
+        this.dealRecords.unshift(this.deal)
+        this.dealRecords.length > 5 && this.dealRecords.pop()
         this.index ++
+      } else {
+        this.index = 0
       }
-      setInterval(() => {
-        if (this.newData[this.index]) {
-          this.dealRecords.unshift(this.newData[this.index])
-          if (this.dealRecords.length > 5) this.dealRecords.pop()
-          this.index ++
-        }
-      }, 1500)
     }
+  },
+
+  mounted () {
+    setInterval(this.getDeal, this.rollTime)
   }
 }
 </script>

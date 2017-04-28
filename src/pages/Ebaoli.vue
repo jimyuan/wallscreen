@@ -99,11 +99,6 @@ export default {
     this.getTodayData()
     this.getProgressData()
     this.getOtherData()
-    // 轮询
-    setInterval(() => {
-      this.getTodayData()
-      this.getProgressData()
-    }, 10000)
   },
 
   components: {TimeStamp, CountZone, BizProgressBoard, DistributeRateBoard, FinanceChannelBoard, RiskManagementBoard, ServiceAnalysisBoard}

@@ -104,7 +104,6 @@ export default {
   mounted () {
     this.getTodayData()
     this.getOtherData()
-    setInterval(this.getTodayData, 10000)
   },
 
   components: { TimeStamp, CountZone, RegCountBoard, HangOutBoard, IncreaseBoard, TradeCountBoard, RegionalDealBoard, HotTradeBoard, ChinaMap }

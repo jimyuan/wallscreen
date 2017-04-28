@@ -6,17 +6,23 @@
 import echarts from 'echarts'
 import options from './ChinaMapData'
 import dataFormat from 'FILTERS/dataFormat'
+import { mapState } from 'vuex'
 export default {
   props: ['data'],
 
   data () {
     return {
       cityArray: options.series[0].data.map(item => item.name),
+      chinaMap: {},
       index: 0
     }
   },
 
   computed: {
+    ...mapState({
+      rollTime: state => state.rollTime
+    }),
+
     tradeData () {
       return this.data
     },
@@ -38,13 +44,14 @@ export default {
   watch: {
     tradeData () {
       this.index = 0
+      this.showTradeTip()
     }
   },
 
   methods: {
-    showTradeTip (instance) {
+    showTradeTip () {
       if (this.tradeOrder) {
-        instance.setOption({
+        this.chinaMap.setOption({
           tooltip: {
             formatter: `${this.tradeOrder.tradeTime}<br>
             ${this.tradeOrder.productTypeName}成交 <span class="tip-text">${dataFormat(this.tradeOrder.tradeAmount)}</span> 吨<br>
@@ -52,22 +59,22 @@ export default {
             <i class="triangle"></i>`
           }
         })
-        instance.dispatchAction({
+        this.chinaMap.dispatchAction({
           type: 'showTip',
           seriesIndex: 0,
           dataIndex: this.cityIndex
         })
         this.index ++
+      } else {
+        this.index = 0
       }
     }
   },
 
   mounted () {
-    const chinaMap = echarts.init(document.getElementById('chinaMap'))
-    chinaMap.setOption(options)
-    setInterval(() => {
-      this.showTradeTip(chinaMap)
-    }, 2500)
+    this.chinaMap = echarts.init(document.getElementById('chinaMap'))
+    this.chinaMap.setOption(options)
+    setInterval(this.showTradeTip, this.rollTime)
   }
 }
 </script>

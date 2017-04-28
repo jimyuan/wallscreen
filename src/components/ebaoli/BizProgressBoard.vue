@@ -21,27 +21,55 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: ['data'],
 
   data () {
     return {
       tHead: ['公司', '业务类型', '状态'],
-      progressRecords: []
+      progressRecords: [],
+      index: 0
+    }
+  },
+
+  computed: {
+    ...mapState({
+      rollTime: state => state.rollTime
+    }),
+
+    newData () {
+      return this.data
+    },
+
+    record () {
+      return this.newData[this.index]
     }
   },
 
   watch: {
-    data () {
+    newData () {
+      this.index = 0
       this.getProgress()
     }
   },
 
   methods: {
     getProgress () {
-      this.progressRecords.unshift(this.data)
-      if (this.progressRecords.length > 6) this.progressRecords.pop()
+      // this.progressRecords.unshift(this.data)
+      // if (this.progressRecords.length > 6) this.progressRecords.pop()
+      if (this.record) {
+        this.progressRecords.unshift(this.record)
+        this.progressRecords.length > 6 && this.progressRecords.pop()
+        this.index ++
+      } else {
+        this.index = 0
+      }
     }
+  },
+
+  mounted () {
+    setInterval(this.getProgress, this.rollTime)
   }
 }
 </script>
