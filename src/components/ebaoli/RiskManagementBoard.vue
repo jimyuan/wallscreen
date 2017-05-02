@@ -20,9 +20,17 @@ export default {
 
   data () {
     return {
-      onGoing: this.data.riskmanageAnalysis.riskmanageOntheway,
-      onStore: this.data.riskmanageAnalysis.riskmanageOnthestore,
+      riskData: this.data.riskmanageAnalysis[0],
       legend: ['当前在途', '在库质押']
+    }
+  },
+
+  computed: {
+    onGoing () {
+      return this.riskData.riskmanageOntheway
+    },
+    onStore () {
+      return this.riskData.riskmanageOnthestore
     }
   },
 

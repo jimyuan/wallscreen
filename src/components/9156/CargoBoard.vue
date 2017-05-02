@@ -9,7 +9,6 @@
 
 <script>
 import echarts from 'echarts'
-import dataFormat from 'FILTERS/dataFormat'
 import options from './CargoData.js'
 export default {
   props: ['data'],
@@ -27,16 +26,7 @@ export default {
     const cargoBoard = echarts.init(document.getElementById('cargoBoard'))
     cargoBoard.setOption(options)
     cargoBoard.setOption({
-      series: {
-        label: {
-          normal: {
-            formatter ({name, value, percent}) {
-              return `${name} (${percent}%, ${dataFormat(value)}吨)`
-            }
-          }
-        },
-        data: this.pieData
-      }
+      series: { data: this.pieData }
     })
   }
 }

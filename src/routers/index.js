@@ -1,12 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import WsCache from 'web-storage-cache'
-import store from 'STORE/store'
-import * as types from 'STORE/types'
 
 Vue.use(VueRouter)
 
-const ls = new WsCache()
 const router = new VueRouter({
   // mode: 'history',
   routes: [{
@@ -16,34 +12,17 @@ const router = new VueRouter({
     path: '/home',
     component: resolve => require(['PAGES/Home'], resolve)
   }, {
+    name: '9156',
     path: '/9156',
     component: resolve => require(['PAGES/9156'], resolve)
   }, {
+    name: '91steel',
     path: '/91steel',
     component: resolve => require(['PAGES/91steel'], resolve)
   }, {
+    name: 'ebaoli',
     path: '/ebaoli',
     component: resolve => require(['PAGES/Ebaoli'], resolve)
   }]
 })
-
-// 页面刷新时，清除过期缓存，并重新赋值token
-if (ls.get('token')) {
-  ls.deleteAllExpires()
-  store.commit(types.LOGIN, ls.get('token'))
-  store.commit(types.USER, ls.get('user'))
-}
-
-router.beforeEach((to, from, next) => {
-  if (to.meta.auth) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
-    store.state.token
-      ? next()
-      : next({ path: '/login', query: { redirect: to.fullPath } })
-  } else {
-    next()
-  }
-})
-
 export default router

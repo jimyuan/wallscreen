@@ -22,7 +22,7 @@
         <count-zone :count-opt="amountOpt"></count-zone>
       </div>
       <!-- 地图 charts -->
-      <china-map :data="liveTrade"></china-map>
+      <china-map v-if="liveTrade" :data="liveTrade"></china-map>
       <time-stamp class="stamp-pos"></time-stamp>
     </div>
     <div class="dash-group-right" v-if="otherData.tradeAnalysis">

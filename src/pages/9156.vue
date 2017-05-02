@@ -2,7 +2,7 @@
   <section class="site-9156">
     <img src="../assets/logo-9156.png" alt="9156" class="logo logo-zone">
     <count-zone :count-opt="count"></count-zone>
-    <china-map></china-map>
+    <china-map v-if="liveOrder"></china-map>
     <div class="dash-group">
       <!-- 全网成交情况 -->
       <deal-board v-if="otherData.sumByMonth" :data="otherData.sumByMonth"></deal-board>

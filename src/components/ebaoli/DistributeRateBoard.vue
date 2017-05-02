@@ -9,7 +9,6 @@
 
 <script>
 import echarts from 'echarts'
-import dataFormat from 'FILTERS/dataFormat'
 import options from './DistributeRateData'
 export default {
   props: ['data'],
@@ -28,13 +27,6 @@ export default {
     distributeRate.setOption(options)
     distributeRate.setOption({
       series: {
-        label: {
-          normal: {
-            formatter ({name, value, percent}) {
-              return `${name} (${percent}%, ${dataFormat(value)}吨)`
-            }
-          }
-        },
         data: this.pieData
       }
     })

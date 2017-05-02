@@ -9,7 +9,6 @@
 
 <script>
 import echarts from 'echarts'
-import dataFormat from 'FILTERS/dataFormat'
 import options from './FinanceChannelData'
 export default {
   props: ['data'],
@@ -27,16 +26,7 @@ export default {
     const financeChannel = echarts.init(document.getElementById('financeChannel'))
     financeChannel.setOption(options)
     financeChannel.setOption({
-      series: {
-        label: {
-          normal: {
-            formatter ({name, value, percent}) {
-              return `${name} (${percent}%, ${dataFormat(value)}万元)`
-            }
-          }
-        },
-        data: this.pieData
-      }
+      series: { data: this.pieData }
     })
   }
 }

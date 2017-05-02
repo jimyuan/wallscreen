@@ -1,4 +1,5 @@
 import common from 'CHARTS/commonData'
+import dataFormat from 'FILTERS/dataFormat'
 
 export default {
   color: common.colorArr,
@@ -14,6 +15,9 @@ export default {
     label: {
       normal: {
         show: true,
+        formatter ({name, value, percent}) {
+          return `${name}\n{${percent}%, ${dataFormat(value)}吨}`
+        },
         textStyle: {
           fontWeight: 'bolder',
           fontSize: common.item16

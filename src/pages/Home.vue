@@ -29,6 +29,7 @@ export default {
   methods: {
     full () {
       fullScreen.enabled && fullScreen.toggle()
+      this.$store.commit('play', true)
     }
   }
 }

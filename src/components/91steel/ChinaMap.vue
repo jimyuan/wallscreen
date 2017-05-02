@@ -1,5 +1,5 @@
 <template>
-  <div class="charts map-zone" id="chinaMap"></div>
+  <div class="charts map-zone" id="dealMap"></div>
 </template>
 
 <script>
@@ -72,7 +72,7 @@ export default {
   },
 
   mounted () {
-    this.chinaMap = echarts.init(document.getElementById('chinaMap'))
+    this.chinaMap = echarts.init(document.getElementById('dealMap'))
     this.chinaMap.setOption(options)
     setInterval(this.showTradeTip, this.rollTime)
   }

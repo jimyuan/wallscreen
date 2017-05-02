@@ -13,7 +13,6 @@
 
 <script>
 import echarts from 'echarts'
-import dataFormat from 'FILTERS/dataFormat'
 import options from './serviceAnalysisData'
 import common from 'CHARTS/commonData'
 export default {
@@ -50,24 +49,10 @@ export default {
       }],
       series: [{}, {
         radius: '26%',
-        center: ['50%', '58%'],
-        label: {
-          normal: {
-            formatter ({name, value, percent}) {
-              return `${name} (${percent}%, ${dataFormat(value)}家)`
-            }
-          }
-        }
+        center: ['50%', '58%']
       }, {
         radius: '26%',
-        center: ['50%', '88%'],
-        label: {
-          normal: {
-            formatter ({name, value, percent}) {
-              return `${name}(${percent}%, ${dataFormat(value)}家)`
-            }
-          }
-        }
+        center: ['50%', '88%']
       }]
     })
 

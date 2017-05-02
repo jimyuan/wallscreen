@@ -1,5 +1,5 @@
 <template>
-  <div class="map-zone" id="chinaMap"></div>
+  <div class="map-zone" id="transportMap"></div>
 </template>
 
 <script>
@@ -32,6 +32,13 @@ export default {
       this.chinaMap.setOption({
         series: [{
           data: [{
+            coords: [
+              geoData['9156'][this.fromCity],
+              geoData['9156'][this.toCity]
+            ]
+          }]
+        }, {
+          data: [{
             value: geoData['9156'][this.fromCity],
             name: this.fromCity
           }, {
@@ -44,7 +51,7 @@ export default {
   },
 
   mounted () {
-    this.chinaMap = echarts.init(document.getElementById('chinaMap'))
+    this.chinaMap = echarts.init(document.getElementById('transportMap'))
     this.chinaMap.setOption(options)
   }
 }

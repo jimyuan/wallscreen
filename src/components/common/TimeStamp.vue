@@ -1,13 +1,12 @@
 <template>
-  <div class="time-stamp">数据更新于 <time v-text="timeStamp"></time></div>
+  <div class="time-stamp">数据更新于 <time>{{ timeStamp | timeFormat }}</time></div>
 </template>
 
 <script>
-import moment from 'moment'
 export default {
   data () {
     return {
-      timeStamp: moment().subtract(10 * Math.random() | 0, 'minutes').format('YYYY-MM-DD HH:mm')
+      timeStamp: Date.now() - 1000 * 60 * (Math.random() * 10 | 0)
     }
   }
 }

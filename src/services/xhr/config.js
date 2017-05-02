@@ -27,7 +27,7 @@ apiEnv = {
     webAPI: 'http://10.66.1.226/largescreen-mobile'
   },
   'test': {
-    webAPI: 'http://10.66.1.160:8087/largescreen-mobile'
+    webAPI: 'http://httptrade.91steel.com/largescreen-mobile'
   },
   'pro': {
     webAPI: 'http://www.ebaoli.com/largescreen-mobile'
@@ -45,7 +45,7 @@ switch (window.location.host) {
     apiRoot = apiEnv.dev
     break
   // test env
-  case '10.66.1.160:8087':
+  case 'httptrade.91steel.com':
     apiRoot = apiEnv.test
     break
   // pro env
