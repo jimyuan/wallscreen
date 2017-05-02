@@ -11,13 +11,12 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "bigscreen": "^2.0.5",
     "echarts": "^3.5.1",
-    "moment": "^2.18.1",
     "normalize.css": "^6.0.0",
     "vue": "^2.2.6",
     "vue-router": "^2.4.0",
-    "vuex": "^2.3.1",
-    "web-storage-cache": "^1.0.3"
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

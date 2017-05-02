@@ -20,16 +20,17 @@ function warnHandler (res) {
  */
 apiEnv = {
   'local': {
-    webAPI: 'http://192.168.1.132:8084'
+    // webAPI: 'http://localhost:8084'
+    webAPI: 'http://10.66.1.226/largescreen-mobile'
   },
   'dev': {
-    webAPI: 'http://10.66.1.133:8081/api'
+    webAPI: 'http://10.66.1.226/largescreen-mobile'
   },
   'test': {
-    webAPI: 'http://10.66.1.160:8087/api'
+    webAPI: 'http://httptrade.91steel.com/largescreen-mobile'
   },
   'pro': {
-    webAPI: 'http://www.ebaoli.com/api'
+    webAPI: 'http://www.ebaoli.com/largescreen-mobile'
   }
 }
 
@@ -40,11 +41,11 @@ switch (window.location.host) {
     apiRoot = apiEnv.local
     break
   // dev env
-  case '10.66.1.133:8081':
+  case '10.66.1.226':
     apiRoot = apiEnv.dev
     break
   // test env
-  case '10.66.1.160:8087':
+  case 'httptrade.91steel.com':
     apiRoot = apiEnv.test
     break
   // pro env
@@ -52,7 +53,7 @@ switch (window.location.host) {
     apiRoot = apiEnv.pro
     break
   default:
-    apiRoot = apiEnv.local
+    apiRoot = apiEnv.dev
 }
 // baseURL = envPath
 

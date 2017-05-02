@@ -4,7 +4,7 @@
       <img :src="img" class="logo">
     </router-link>
     <div class="launch-bar">
-      <div class="button" :class="{play: play, pause: !play}" @click="play=!play"></div>
+      <div class="button" :class="{play: play, pause: !play}" @click="full"></div>
     </div>
   </section>
 </template>
@@ -13,6 +13,7 @@
 import _9156 from 'ASSETS/logo-9156.png'
 import _91steel from 'ASSETS/logo-91steel.png'
 import _ebaoli from 'ASSETS/logo-ebaoli.png'
+import fullScreen from 'bigscreen'
 export default {
   data () {
     return {
@@ -22,6 +23,13 @@ export default {
         'ebaoli': _ebaoli
       },
       play: true
+    }
+  },
+
+  methods: {
+    full () {
+      fullScreen.enabled && fullScreen.toggle()
+      this.$store.commit('play', true)
     }
   }
 }

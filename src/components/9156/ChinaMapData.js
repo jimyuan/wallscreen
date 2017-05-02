@@ -1,30 +1,25 @@
 import 'echarts/map/js/china'
-import geoData from 'CHARTS/geoData'
 
-const geo9156 = geoData['9156']
-const label = {
-  normal: {
-    show: true,
-    position: [10, 5],
-    textStyle: {
-      color: '#fff'
-    }
-  }
-}
-const provinceData = geoData.province.map(prov => ({
-  name: prov, label
-}))
 const cityPoint = {
   name: '城市',
-  hoverAnimation: false,
-  legendHoverLink: false,
   type: 'effectScatter',
   coordinateSystem: 'geo',
-  symbolSize: 4,
+  symbolSize: 6,
+  zlevel: 3,
   effectType: 'ripple',
   rippleEffect: {
     brushType: 'stroke',
     scale: 3
+  },
+  label: {
+    normal: {
+      show: true,
+      position: 'right',
+      formatter: '{b}',
+      textStyle: {
+        color: '#fff'
+      }
+    }
   },
   itemStyle: {
     normal: {
@@ -34,18 +29,61 @@ const cityPoint = {
       borderWidth: 1
     }
   },
-  data: Object.keys(geo9156).map(city => ({
-    value: geo9156[city]
-  }))
+  data: []
+}
+
+// const trackLine = {
+//   type: 'lines',
+//   zlevel: 1,
+//   effect: {
+//     show: true,
+//     period: 2,
+//     trailLength: 1,
+//     color: '#fff',
+//     symbolSize: 3
+//   },
+//   lineStyle: {
+//     normal: {
+//       color: 'transparent',
+//       width: 0,
+//       curveness: 0.4
+//     }
+//   },
+//   data: []
+// }
+
+const trackPiont = {
+  type: 'lines',
+  zlevel: 2,
+  symbol: ['none', 'arrow'],
+  symbolSize: 10,
+  effect: {
+    show: true,
+    period: 10,
+    trailLength: 0,
+    symbol: 'triangle',
+    color: 'rgba(255, 255, 255, 0.8)',
+    symbolSize: 15
+  },
+  lineStyle: {
+    normal: {
+      color: '#ffa022',
+      width: 2,
+      opacity: 0.8,
+      curveness: 0.4
+    }
+  },
+  data: []
 }
 
 export default {
   backgroundColor: 'transparent',
   geo: {
     map: 'china',
-    x: '18%',
+    x: '16%',
     y: '13%',
-    zoom: 0.9,
+    zoom: 1.1,
+    roam: false,
     z: 3,
     itemStyle: {
       normal: {
@@ -53,8 +91,7 @@ export default {
         borderColor: '#00c7ff'
       }
     },
-    regions: provinceData,
     silent: true
   },
-  series: [ cityPoint ]
+  series: [ trackPiont, cityPoint ]
 }

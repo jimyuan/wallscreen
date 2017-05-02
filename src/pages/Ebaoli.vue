@@ -20,45 +20,38 @@
     </div>
     <div class="layout">
       <div class="dash-group left-group">
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
+        <!-- 业务办理进度 -->
+        <biz-progress-board v-if="progress" :data="progress"></biz-progress-board>
+        <!-- 大智运配送比 -->
+        <distribute-rate-board v-if="otherData.shippingScaleAnalysis" :data="otherData"></distribute-rate-board>
       </div>
       <div class="dash-group mid-group">
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
+        <!-- 筹资渠道 -->
+        <finance-channel-board v-if="otherData.raiseChannelAnalysis" :data="otherData"></finance-channel-board>
+        <!-- 风控 -->
+        <risk-management-board v-if="otherData.riskmanageAnalysis" :data="otherData"></risk-management-board>
       </div>
       <div class="dash-group right-group">
-        <div class="dash">
-          <h1>Lorem ipsum dolor sit.</h1>
-          <div class="board"></div>
-        </div>
+        <!-- 服务用户分析 -->
+        <service-analysis-board v-if="otherData.allUsersCount" :data="otherData"></service-analysis-board>
       </div>
     </div>
-    <time-stamp :value="timeStamp" class="stamp-pos"></time-stamp>
+    <time-stamp class="stamp-pos"></time-stamp>
   </section>
 </template>
 
 <script>
-import moment from 'moment'
+import cs from 'SERVICES/ChartService'
 import TimeStamp from 'COMPONENTS/common/TimeStamp'
 import CountZone from 'COMPONENTS/common/CountZone'
-
+import BizProgressBoard from 'COMPONENTS/ebaoli/BizProgressBoard'
+import DistributeRateBoard from 'COMPONENTS/ebaoli/DistributeRateBoard'
+import FinanceChannelBoard from 'COMPONENTS/ebaoli/FinanceChannelBoard'
+import RiskManagementBoard from 'COMPONENTS/ebaoli/RiskManagementBoard'
+import ServiceAnalysisBoard from 'COMPONENTS/ebaoli/ServiceAnalysisBoard'
 export default {
   data () {
     return {
-      timeStamp: moment().subtract(10 * Math.random() | 0, 'minutes').format('YYYY-MM-DD HH:mm'),
       amountOpt: {
         title: '累计金融服务金额',
         subTitle: '',
@@ -66,9 +59,48 @@ export default {
         todayCount: 6982
       },
       tabHead: ['信用融资', '配送融资', '商票业务', '质押融资', '寄售', '托盘'],
-      tabData: [3234, 220, 33, 99012, 1125532, 0]
+      tabData: [],
+      otherData: {},
+      progress: {}
     }
   },
-  components: {TimeStamp, CountZone}
+
+  methods: {
+    // 今日数据获取
+    getTodayData () {
+      cs.liveEbaoli().then(data => {
+        const record = data.financeRecords
+        this.amountOpt.todayCount = data.allFinanceAmount
+        this.tabData = [
+          record.creditFinancing,
+          record.dispatchingFinancing,
+          record.ticketFinancing,
+          record.pledgeFinancing,
+          record.saleFinancing,
+          record.trayFinancing
+        ]
+      })
+    },
+    // 固定数据获取
+    getOtherData () {
+      cs.fetchEbaoli().then(data => {
+        this.otherData = data
+      })
+    },
+    // 业务进度数据获取
+    getProgressData () {
+      cs.scrollProgress().then(data => {
+        this.progress = data
+      })
+    }
+  },
+
+  mounted () {
+    this.getTodayData()
+    this.getProgressData()
+    this.getOtherData()
+  },
+
+  components: {TimeStamp, CountZone, BizProgressBoard, DistributeRateBoard, FinanceChannelBoard, RiskManagementBoard, ServiceAnalysisBoard}
 }
 </script>

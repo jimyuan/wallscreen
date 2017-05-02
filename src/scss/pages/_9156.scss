@@ -42,18 +42,36 @@
     z-index: z('9156time');
   }
 
-  .trans-count {
-    font-size: resp-size(18px);
-    padding: resp-size(25px) resp-size(50px) 0;
+  .table-consumer {
+    @include absolute(top 10% bottom 10% left 65% right 5%);
+    border: 1px solid #00b6ca;
 
-    > span:last-child {
-      float: right;
-      color: #00aee1;
+    > table {
+      border-collapse: collapse;
+      width: 99%;
+
+      th, td {
+        padding: 0.3em 0.8em;
+        font-size: resp-size(16px);
+      }
+
+      th {
+        background: #112533;
+        text-align: left;
+        color: #00c7ff;
+
+        &:first-child {
+          width: 40%;
+        }
+      }
+
+      td {
+        border: 1px solid #142836;
+        background: #1b2f3d;
+        &:nth-child(odd) {
+          background: #172c3a;
+        }
+      }
     }
-  }
-
-  #dealBoard,
-  #consumerBoard {
-    @include absolute(top 0 right 0 bottom 0 left 0);
   }
 }

@@ -17,13 +17,13 @@ cnpm install
 
 # serve with hot reload at localhost:8080
 # 默认在 8080 端口开启热加载 web server
-cnpm start
+npm start
 
 # build for production with minification
 # 编译成生成环境所需代码
-cnpm run build
+npm run build
 
 # build for production and view the bundle analyzer report
 # 生成编译打包分析报告
-cnpm run build --report
+npm run build --report
 ```

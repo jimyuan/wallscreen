@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+@for $h from 1 through 6 {
+  h#{$h} {
+    margin: 0;
+  }
+}
+
+.logo {
+  height: resp-size(85px);
+}
+
+.tip-text {
+  color: #fff;
+}
+
+.unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.deal-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  th {
+    color: #00b3e7;
+    font-weight: bold;
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 1px solid currentcolor;
+  }
+
+  td {
+    color: #fff;
+    padding: 0.5em;
+    font-size: 0.8em;
+
+    &:nth-child(odd) {
+      font-family: monospace;
+    }
+  }
+}
+
+/* Dash 样式定义 */
+.dash {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    background: linear-gradient(to right, transparent 5%, $dash-title-bg 50%, transparent);
+    font-size: resp-size(22px);
+    line-height: 2.3;
+    color: $dash-title-color;
+    text-align: center;
+  }
+}
+
+.dash-bargain > .board {
+  padding: resp-size(10px) resp-size(20px);
+}
+
+.board {
+  margin-top: resp-size(5px);
+  background: $dash-board-bg;
+  height: 100%;
+  position: relative;
+}
+
+.trans-count {
+  font-size: resp-size(18px);
+  padding: resp-size(25px) resp-size(50px) 0;
+
+  > span:last-child {
+    float: right;
+    color: #00aee1;
+  }
+
+  > .total {
+    color: #00aee1;
+  }
+
+  & + & {
+    padding-top: 10px;
+  }
+}
+
+.charts {
+  @include absolute(top 0 right 0 bottom 0 left 0);
+}
+
+.triangle {
+  display: block;
+  position: absolute;
+  top: -12px;
+  width: 20px;
+  height: 12px;
+  box-sizing: border-box;
+  background: linear-gradient(to top right, rgb(10, 48, 86) 48%, #31b7d4 0, #31b7d4 53%, transparent 0);
+  border-left: 1px solid #31b7d4;
+}
+
+.analysis-mod {
+  @include absolute(left 7% right 7%);
+  font-size: resp-size(20px);
+  color: $dash-title-color;
+  text-align: center;
+  background: linear-gradient($dash-title-color 0) repeat-x 0 50% / 1px;
+
+  &.line1 {
+    top: 7%;
+  }
+
+  &.line2 {
+    top: 43%;
+  }
+
+  &.line3 {
+    top: 73%;
+  }
+
+  &::before,
+  &::after {
+    @include size(0.4em);
+    @include absolute(top 50%);
+
+    content: '';
+    display: block;
+    background-color: $dash-title-color;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  > span {
+    display: inline-block;
+    background: $dash-board-bg;
+    padding: 0 1em;
+  }
+}
+
+/* 表格动画样式定义 */
+.list-item {
+  transition: all .5s;
+}
+
+.list-row-enter-active {
+  // background: #fff;
+
+  td {
+    color: transparent;
+  }
+}
+
+.list-row-enter {
+  // background: rgba(1,42,71,0.8);
+
+  td {
+    color: #fff;
+  }
+}
+
+.list-row-leave-active {
+  display: none;
+}
