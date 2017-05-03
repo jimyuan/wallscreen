@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './ChannelData'
 export default {
   props: ['data'],
@@ -23,6 +22,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const channelBoard = echarts.init(document.getElementById('channelBoard'))
     channelBoard.setOption(options)
     channelBoard.setOption({

@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './IncreaseData'
 import common from 'CHARTS/commonData'
 export default {
@@ -22,6 +21,7 @@ export default {
     }
   },
   mounted () {
+    /* eslint-disable no-undef */
     const increase = echarts.init(document.getElementById('increase'))
     increase.setOption(options)
     increase.setOption({

@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './HangOutData'
 import common from 'CHARTS/commonData'
 export default {
@@ -40,6 +39,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const hangOut = echarts.init(document.getElementById('hangOut'))
     hangOut.setOption(options)
     hangOut.setOption({

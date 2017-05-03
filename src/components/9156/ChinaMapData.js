@@ -1,5 +1,3 @@
-import 'echarts/map/js/china'
-
 const cityPoint = {
   name: '城市',
   type: 'effectScatter',

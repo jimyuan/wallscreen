@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './DistributeRateData'
 export default {
   props: ['data'],
@@ -23,6 +22,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const distributeRate = echarts.init(document.getElementById('distributeRate'))
     distributeRate.setOption(options)
     distributeRate.setOption({

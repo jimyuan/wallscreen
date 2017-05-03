@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './ChinaMapData'
 import geoData from 'CHARTS/geoData'
 import { mapState } from 'vuex'
@@ -51,6 +50,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     this.chinaMap = echarts.init(document.getElementById('transportMap'))
     this.chinaMap.setOption(options)
   }

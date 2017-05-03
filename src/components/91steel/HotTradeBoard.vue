@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './HotTradeData'
 export default {
   props: ['data'],
@@ -23,6 +22,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const hotTrade = echarts.init(document.getElementById('hotTrade'))
     hotTrade.setOption(options)
     hotTrade.setOption({

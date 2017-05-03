@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './TradeCountData'
 export default {
   props: ['data'],
@@ -23,6 +22,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const tradeCount = echarts.init(document.getElementById('tradeCount'))
     tradeCount.setOption(options)
     tradeCount.setOption({

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './RiskManagementData'
 import common from 'CHARTS/commonData'
 export default {
@@ -35,6 +34,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const riskManagement = echarts.init(document.getElementById('riskManagement'))
     riskManagement.setOption(options)
     riskManagement.setOption({

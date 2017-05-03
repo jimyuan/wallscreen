@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './CargoData.js'
 export default {
   props: ['data'],
@@ -23,6 +22,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const cargoBoard = echarts.init(document.getElementById('cargoBoard'))
     cargoBoard.setOption(options)
     cargoBoard.setOption({

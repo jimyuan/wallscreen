@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './DealData'
 import common from 'CHARTS/commonData'
 export default {
@@ -28,6 +27,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const dealBoard = echarts.init(document.getElementById('dealBoard'))
     dealBoard.setOption(options)
     dealBoard.setOption({

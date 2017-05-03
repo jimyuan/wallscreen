@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './ChinaMapData'
 import dataFormat from 'FILTERS/dataFormat'
 import { mapState } from 'vuex'
@@ -72,6 +71,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     this.chinaMap = echarts.init(document.getElementById('dealMap'))
     this.chinaMap.setOption(options)
     setInterval(this.showTradeTip, this.rollTime)

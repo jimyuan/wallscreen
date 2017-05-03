@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './FinanceChannelData'
 export default {
   props: ['data'],
@@ -23,6 +22,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const financeChannel = echarts.init(document.getElementById('financeChannel'))
     financeChannel.setOption(options)
     financeChannel.setOption({

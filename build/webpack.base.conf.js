@@ -12,7 +12,7 @@ function resolve (dir) {
 module.exports = {
   entry: {
     app: './src/main.js',
-    vendor: ['echarts', 'echarts/map/js/china']
+    vendor: ['axios', 'echarts/map/js/china-contour']
   },
   output: {
     path: config.build.assetsRoot,
@@ -20,6 +20,9 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
+  },
+  externals: {
+    "echarts": "echarts"
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

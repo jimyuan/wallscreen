@@ -1,4 +1,3 @@
-import 'echarts/map/js/china'
 import geoData from 'CHARTS/geoData'
 
 const geo91steel = geoData['91steel']

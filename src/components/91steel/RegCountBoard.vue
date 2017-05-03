@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './RegCountData'
 import common from 'CHARTS/commonData'
 export default {
@@ -52,6 +51,7 @@ export default {
   },
 
   mounted () {
+    /* eslint-disable no-undef */
     const regCount = echarts.init(document.getElementById('regCount'))
     regCount.setOption(options)
     regCount.setOption({

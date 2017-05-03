@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './ConsumerData'
 export default {
   props: ['data'],
@@ -43,6 +42,7 @@ export default {
     }
   },
   mounted () {
+    /* eslint-disable no-undef */
     const consumerBoard = echarts.init(document.getElementById('consumerBoard'))
     consumerBoard.setOption(options)
     consumerBoard.setOption({

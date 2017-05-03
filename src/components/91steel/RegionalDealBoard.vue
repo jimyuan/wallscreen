@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import options from './RegionalDealData'
 export default {
   props: ['data'],
@@ -26,6 +25,7 @@ export default {
     }
   },
   mounted () {
+    /* eslint-disable no-undef */
     const regionalDeal = echarts.init(document.getElementById('regionalDeal'))
     regionalDeal.setOption(options)
 
