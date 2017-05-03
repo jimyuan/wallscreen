@@ -4,7 +4,6 @@ import common from 'CHARTS/commonData'
 
 const xAxis = [{
   type: 'category',
-  data: [],
   axisLine: {
     lineStyle: {
       color: common.lineColor
@@ -12,7 +11,8 @@ const xAxis = [{
   },
   axisTick: {
     show: false
-  }
+  },
+  data: []
 }, {
   type: 'category',
   position: 'top',

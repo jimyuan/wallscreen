@@ -48,7 +48,7 @@ export default {
           this.$router.push({ name: route[0] })
           this.index = 1
         }
-      }, 10000)
+      }, 10 * 1000)
     }
   }
 }

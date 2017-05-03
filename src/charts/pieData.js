@@ -9,7 +9,8 @@ export default {
   series: [{
     hoverAnimation: false,
     type: 'pie',
-    startAngle: 45,
+    startAngle: 360 * Math.random() | 0,
+    minAngle: 20,
     radius: '60%',
     silent: true,
     label: {

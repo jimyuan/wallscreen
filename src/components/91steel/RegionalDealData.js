@@ -6,7 +6,7 @@ const grid = [{
   show: true,
   containLabel: true,
   x: '3%',
-  x2: '8%',
+  x2: '10%',
   y: '5%',
   y2: '18%',
   borderWidth: 0
@@ -14,6 +14,9 @@ const grid = [{
 
 const xAxis = [{
   type: 'value',
+  nameTextStyle: {
+    color: '#fff'
+  },
   axisLine: {
     show: true,
     lineStyle: {

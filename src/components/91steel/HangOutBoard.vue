@@ -3,12 +3,12 @@
     <h1>挂牌量分析</h1>
     <div class="board">
       <h2 class="trans-count">
-        <span class="total">总挂牌量：{{ totalHangOut | dataFormat }}</span>
+        <span class="total">总挂牌量：{{ totalHangOut | dataFormat }} 吨</span>
         <span></span>
       </h2>
       <h2 class="trans-count hang-out">
-        <span class="total">总成交量：{{ totalDeal | dataFormat }}</span>
-        <span>总结算量：{{ totalDone | dataFormat }}</span>
+        <span class="total">总成交量：{{ totalDeal | dataFormat }} 吨</span>
+        <span>总结算量：{{ totalDone | dataFormat }} 吨</span>
       </h2>
       <div id="hangOut" class="charts"></div>
     </div>
@@ -31,7 +31,7 @@ export default {
       // 总结算量
       totalDone: this.data.allTradeAmount,
       // 总挂牌量 category
-      xData: this.data.quotedTradeRecords.map(item => `${item.month}月`).reverse(),
+      xData: this.data.quotedTradeRecords.map(item => item.month).reverse(),
       // 总挂牌量 data
       yData: this.data.quotedTradeRecords.map(item => item.quotedAmount).reverse(),
       // 成交量 & 结算量
@@ -44,16 +44,16 @@ export default {
     hangOut.setOption(options)
     hangOut.setOption({
       yAxis: [{
-        name: '单位: 万元'
+        name: '单位: 万吨',
+        axisLabel: common.cashLabel
+      }],
+      xAxis: [{
+        axisLabel: common.monthLabel
       }],
       grid: [{
         // 设置坐标区斑马纹效果
         backgroundColor: {
           colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
-        }
-      }, {
-        backgroundColor: {
-          colorStops: common.gradient(6, common.oddColor2, common.evenColor2)
         }
       }]
     })

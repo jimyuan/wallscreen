@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       allUserCount: this.data.allUsersCount,
-      xData: this.data.registeUserAnalysis.map(item => `${item.month}月`).reverse(),
+      xData: this.data.registeUserAnalysis.map(item => item.month).reverse(),
       yData: this.data.registeUserAnalysis.map(item => item.userCount).reverse(),
       quotePieData: this.data.userCreditAnalysis.map(item => ({
         name: item.userCreditAmoutName,
@@ -39,7 +39,10 @@ export default {
     serviceAnalysis.setOption(options)
     serviceAnalysis.setOption({
       yAxis: [{
-        name: '单位: 万元'
+        name: '单位: 家'
+      }],
+      xAxis: [{
+        axisLabel: common.monthLabel
       }],
       grid: [{
         // 设置坐标区斑马纹效果

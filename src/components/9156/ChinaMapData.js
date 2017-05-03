@@ -82,7 +82,7 @@ export default {
     map: 'china',
     x: '16%',
     y: '13%',
-    zoom: 1.1,
+    zoom: 0.9,
     roam: false,
     z: 3,
     itemStyle: {

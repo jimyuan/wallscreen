@@ -17,7 +17,7 @@ export default {
   data () {
     return {
       // 折线图 category
-      xData: this.data.quotedTradeRecords.map(item => `${item.month}月`).reverse(),
+      xData: this.data.quotedTradeRecords.map(item => item.month).reverse(),
       yData: this.data.quotedTradeRecords.map(item => item.tradeAmount).reverse()
     }
   },
@@ -26,7 +26,11 @@ export default {
     increase.setOption(options)
     increase.setOption({
       yAxis: [{
-        name: '单位: 万元'
+        name: '单位: 万吨',
+        axisLabel: common.cashLabel
+      }],
+      xAxis: [{
+        axisLabel: common.monthLabel
       }],
       grid: [{
         // 设置坐标区斑马纹效果

@@ -37,13 +37,18 @@
       margin: auto;
     }
 
-    > .count-article {
-      margin: 0 resp-size(55px);
-      display: flex;
+  }
+
+  .count-article {
+    margin: 0 resp-size(55px);
+    display: flex;
+
+    article:first-child {
+      width: 45%;
     }
 
-    article {
-      width: 50%;
+    article:last-child {
+      width: 55%;
     }
   }
 

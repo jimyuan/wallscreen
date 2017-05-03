@@ -22,7 +22,7 @@ export default {
     return {
       monthCount: this.data[0],
       totalCount: this.data[1],
-      xData: this.data.map(item => item.monthName),
+      xData: this.data.map(item => parseInt(item.monthName, 10)),
       yData: this.data.map(item => item.sum)
     }
   },
@@ -35,6 +35,9 @@ export default {
         backgroundColor: {
           colorStops: common.gradient(this.xData.length - 2, common.oddColor, common.evenColor)
         }
+      }],
+      xAxis: [{
+        axisLabel: common.monthLabel
       }],
       series: [{
         type: 'bar',

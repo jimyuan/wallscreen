@@ -33,7 +33,7 @@ export default {
       // 累计注册企业
       totalCompany: this.data.allCompanyCount,
       // 折线图 category
-      xData: this.data.companysRecords.map(item => `${item.month}月`).reverse(),
+      xData: this.data.companysRecords.map(item => item.month).reverse(),
       // 折线图注册用户 data
       yData1: this.data.companysRecords.map(item => item.registerUsersCount).reverse(),
       // 折线图注册企业 data
@@ -60,6 +60,9 @@ export default {
         backgroundColor: {
           colorStops: common.gradient(this.xData.length, common.oddColor, common.evenColor)
         }
+      }],
+      xAxis: [{
+        axisLabel: common.monthLabel
       }],
       legend: [{
         x: '15%',

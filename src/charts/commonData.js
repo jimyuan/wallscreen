@@ -6,7 +6,7 @@ function view (data) {
     lg: 1280
   }
   // 正式环境 cur = rw.lg
-  const cur = rw.md
+  const cur = rw.lg
   return data * cur / rw.lg
 }
 
@@ -38,7 +38,7 @@ export default {
   // 挂牌量分析图表渐变色-2
   evenColor2: '#363636',
   // 饼图颜色序
-  colorArr: ['#0097c2', '#f7b52c', '#ca7c27', '#009844', '#8dc21f'],
+  colorArr: ['#0097c2', '#f7b52c', '#ca7c27', '#009844', '#8dc21f', '#e74127'],
   // 环装图色序
   ringColor: ['#8dbd1b', '#0096c1', '#f8b226', '#e74127'],
   // 全局文字样式
@@ -61,5 +61,17 @@ export default {
     y: 0,
     x2: 1,
     y2: 0
+  },
+  // 大数类座标（万x）单文
+  cashLabel: {
+    formatter (value) {
+      return (value / 10000).toFixed(2)
+    }
+  },
+  // 月份类座标格式
+  monthLabel: {
+    formatter (value, index) {
+      return (index !== 5) ? `${value}月` : '本月'
+    }
   }
 }

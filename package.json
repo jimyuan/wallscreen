@@ -1,8 +1,8 @@
 {
-  "name": "vue2-proj",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Jim Yuan <aquarior@gmail.com>",
+  "name": "largescreen",
+  "version": "0.5.2-beta",
+  "description": "A large screen project for company.",
+  "author": "Jim Yuan <yuanxuejun@czcg.com.cn>",
   "private": true,
   "scripts": {
     "start": "node build/dev-server.js",

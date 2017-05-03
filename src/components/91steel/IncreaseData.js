@@ -2,7 +2,7 @@ import lineData from 'CHARTS/lineData'
 const grid = [{
   show: true,
   containLabel: true,
-  x: '2%',
+  x: '5%',
   x2: '8%',
   y: '25%',
   y2: '8%',

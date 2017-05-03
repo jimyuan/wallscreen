@@ -8,7 +8,7 @@ const backgroundColor = common.backgroundColor
 const grid = [{
   show: true,
   containLabel: true,
-  x: '2%',
+  x: '4%',
   x2: '8%',
   y: '20%',
   y2: '50%',
@@ -22,7 +22,10 @@ const grid = [{
   y: '65%',
   y2: '15%',
   borderWidth: 0,
-  backgroundColor
+  backgroundColor: {
+    ...backgroundColor,
+    colorStops: common.gradient(6, common.oddColor2, common.evenColor2)
+  }
 }]
 
 const xAxis1 = lineData.xAxis
@@ -31,6 +34,9 @@ const xAxis2 = [{
   type: 'value',
   gridIndex: 1,
   splitNumber: 4,
+  nameTextStyle: {
+    color: '#fff'
+  },
   axisLine: {
     lineStyle: {
       color: common.lineColor
