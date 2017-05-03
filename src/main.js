@@ -1,5 +1,5 @@
 import 'normalize.css'
-import 'echarts/map/js/china-contour'
+import 'echarts/map/js/china'
 import Vue from 'vue'
 import App from 'COMPONENTS/App'
 import router from 'ROUTERS/'

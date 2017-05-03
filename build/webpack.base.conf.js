@@ -12,7 +12,7 @@ function resolve (dir) {
 module.exports = {
   entry: {
     app: './src/main.js',
-    vendor: ['axios', 'echarts/map/js/china-contour']
+    vendor: ['axios', 'echarts/map/js/china']
   },
   output: {
     path: config.build.assetsRoot,
