@@ -47,10 +47,10 @@ export default {
     consumerBoard.setOption(options)
     consumerBoard.setOption({
       legend: [{
-        x: '10%',
+        x: '14%',
         y: '3%'
       }, {
-        x: '40%',
+        x: '44%',
         y: '3%'
       }],
       series: [{

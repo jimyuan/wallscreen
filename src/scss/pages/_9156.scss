@@ -44,10 +44,9 @@
 
   .table-consumer {
     @include absolute(top 10% bottom 10% left 65% right 5%);
-    border: 1px solid #00b6ca;
 
     > table {
-      border-collapse: collapse;
+      border: 1px solid #00b6ca;
       width: 99%;
 
       th, td {
@@ -66,7 +65,7 @@
       }
 
       td {
-        border: 1px solid #142836;
+        border-top: 1px solid #142836;
         background: #1b2f3d;
         &:nth-child(odd) {
           background: #172c3a;
