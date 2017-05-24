@@ -43,6 +43,7 @@ export default {
   ringColor: ['#8dbd1b', '#0096c1', '#f8b226', '#e74127'],
   // 全局文字样式
   textStyle: {
+    fontFamily: 'Microsoft YaHei',
     color: '#fff',
     fontSize: view(16)
   },

@@ -21,10 +21,10 @@ function warnHandler (res) {
 apiEnv = {
   'local': {
     // webAPI: 'http://localhost:8084'
-    webAPI: 'http://10.66.1.226/largescreen-mobile'
+    webAPI: 'http://httptrade.91steel.com/largescreen-mobile'
   },
   'dev': {
-    webAPI: 'http://10.66.1.226/largescreen-mobile'
+    webAPI: 'http://httptrade.91steel.com/largescreen-mobile'
   },
   'test': {
     webAPI: 'http://httptrade.91steel.com/largescreen-mobile'

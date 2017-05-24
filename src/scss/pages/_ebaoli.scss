@@ -74,11 +74,11 @@
     }
   }
 
-  .dash-bargain .deal-table {
-    table-layout: fixed;
+  .deal-table {
+    table-layout: auto;
 
-    td {
-      font-family: sans-serif;
+    th:first-child {
+      width: 50%;
     }
   }
 }

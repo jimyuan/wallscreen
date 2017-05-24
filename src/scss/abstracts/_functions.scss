@@ -64,7 +64,6 @@
  * @return 相对值
  */
 @function resp-size($size) {
-  $unit: unquote(unit($size));
   $size: strip-unit($size);
 
   @return $size * $viewport / map-get($viewport-size, 'lg');

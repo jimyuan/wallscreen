@@ -55,7 +55,7 @@ export default {
       amountOpt: {
         title: '累计金融服务金额',
         subTitle: '',
-        unit: '万元',
+        unit: '元',
         todayCount: 6982
       },
       tabHead: ['信用融资', '配送融资', '商票业务', '质押融资', '寄售', '托盘'],

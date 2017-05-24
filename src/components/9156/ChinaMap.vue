@@ -38,6 +38,13 @@ export default {
           }]
         }, {
           data: [{
+            coords: [
+              geoData['9156'][this.fromCity],
+              geoData['9156'][this.toCity]
+            ]
+          }]
+        }, {
+          data: [{
             value: geoData['9156'][this.fromCity],
             name: this.fromCity
           }, {

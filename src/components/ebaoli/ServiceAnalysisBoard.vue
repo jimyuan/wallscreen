@@ -14,6 +14,7 @@
 <script>
 import options from './serviceAnalysisData'
 import common from 'CHARTS/commonData'
+import dataFormat from 'FILTERS/dataFormat'
 export default {
   props: ['data'],
 
@@ -52,10 +53,24 @@ export default {
       }],
       series: [{}, {
         radius: '26%',
-        center: ['50%', '58%']
+        center: ['50%', '58%'],
+        label: {
+          normal: {
+            formatter ({name, value, percent}) {
+              return `${name}\n{${percent}%, ${dataFormat(value)}家}`
+            }
+          }
+        }
       }, {
         radius: '26%',
-        center: ['50%', '88%']
+        center: ['50%', '88%'],
+        label: {
+          normal: {
+            formatter ({name, value, percent}) {
+              return `${name}\n{${percent}%, ${dataFormat(value)}家}`
+            }
+          }
+        }
       }]
     })
 
