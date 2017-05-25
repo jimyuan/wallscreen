@@ -28,6 +28,7 @@ export default {
 
   methods: {
     routePath () {
+      this.chinaMap.setOption({series: []})
       this.chinaMap.setOption({
         series: [{
           data: [{

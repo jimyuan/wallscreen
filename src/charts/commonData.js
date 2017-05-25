@@ -38,9 +38,10 @@ export default {
   // 挂牌量分析图表渐变色-2
   evenColor2: '#363636',
   // 饼图颜色序
-  colorArr: ['#0097c2', '#f7b52c', '#ca7c27', '#009844', '#8dc21f', '#e74127'],
+  colorArr: ['#e4713d', '#0990b8', '#f2c914', '#a36929', '#079044', '#8aba27'],
   // 环装图色序
-  ringColor: ['#8dbd1b', '#0096c1', '#f8b226', '#e74127'],
+  // ringColor: ['#8dbd1b', '#0096c1', '#f8b226', '#e74127'],
+  ringColor: ['#e4713d', '#0990b8', '#f2c914', '#a36929'],
   // 全局文字样式
   textStyle: {
     fontFamily: 'Microsoft YaHei',
@@ -71,8 +72,6 @@ export default {
   },
   // 月份类座标格式
   monthLabel: {
-    formatter (value, index) {
-      return (index !== 5) ? `${value}月` : '本月'
-    }
+    formatter: '{value}月'
   }
 }

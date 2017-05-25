@@ -55,8 +55,8 @@ export default {
       amountOpt: {
         title: '累计金融服务金额',
         subTitle: '',
-        unit: '元',
-        todayCount: 6982
+        unit: '万元',
+        todayCount: 0
       },
       tabHead: ['信用融资', '配送融资', '商票业务', '质押融资', '寄售', '托盘'],
       tabData: [],
@@ -66,18 +66,21 @@ export default {
   },
 
   methods: {
+    tenYuanFormatter (val) {
+      return parseInt((val / 10000).toFixed(), 10)
+    },
     // 今日数据获取
     getTodayData () {
       cs.liveEbaoli().then(data => {
         const record = data.financeRecords
-        this.amountOpt.todayCount = data.allFinanceAmount
+        this.amountOpt.todayCount = this.tenYuanFormatter(data.allFinanceAmount)
         this.tabData = [
-          record.creditFinancing,
-          record.dispatchingFinancing,
-          record.ticketFinancing,
-          record.pledgeFinancing,
-          record.saleFinancing,
-          record.trayFinancing
+          this.tenYuanFormatter(record.creditFinancing),
+          this.tenYuanFormatter(record.dispatchingFinancing),
+          this.tenYuanFormatter(record.ticketFinancing),
+          this.tenYuanFormatter(record.pledgeFinancing),
+          this.tenYuanFormatter(record.saleFinancing),
+          this.tenYuanFormatter(record.trayFinancing)
         ]
       })
     },
