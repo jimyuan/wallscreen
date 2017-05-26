@@ -7,7 +7,8 @@ const label = {
     position: [-10, -25],
     formatter: '{b}',
     textStyle: {
-      color: '#fff'
+      color: '#fff',
+      fontSize: 14
     }
   }
 }

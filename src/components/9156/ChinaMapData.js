@@ -17,6 +17,7 @@ const cityPoint = {
       position: 'right',
       formatter: '{b}',
       textStyle: {
+        fontSize: 14,
         color: '#fff'
       }
     }

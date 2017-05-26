@@ -107,7 +107,8 @@
   font-size: resp-size(20px);
   color: $dash-title-color;
   text-align: center;
-  background: linear-gradient($dash-title-color 0) repeat-x 0 50% / 1px;
+  background: linear-gradient($dash-title-color 0, $dash-title-color 100%) repeat-x 0 50%;
+  background-size: auto 1px;
 
   &.line1 {
     top: 7%;
